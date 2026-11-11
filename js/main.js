@@ -5,12 +5,25 @@
   /* ---------- Cabecera y menú móvil ---------- */
   var cabecera = document.getElementById('cabecera');
   var menuBoton = document.getElementById('menu-boton');
+  var nav = document.getElementById('nav');
+  var pantallaMovil = window.matchMedia('(max-width: 60rem)');
 
   function menu(abrir) {
     cabecera.classList.toggle('abierta', abrir);
     menuBoton.setAttribute('aria-expanded', String(abrir));
   }
   menuBoton.addEventListener('click', function () { menu(!cabecera.classList.contains('abierta')); });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) menu(false);
+  });
+  document.addEventListener('click', function (e) {
+    if (!cabecera.contains(e.target)) menu(false);
+  });
+  document.addEventListener('focusin', function (e) {
+    if (!cabecera.contains(e.target)) menu(false);
+  });
+  pantallaMovil.addEventListener('change', function () { menu(false); });
+  window.addEventListener('pageshow', function () { menu(false); });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && cabecera.classList.contains('abierta')) { menu(false); menuBoton.focus(); }
   });
@@ -89,6 +102,7 @@
       origen = boton;
       mostrar(lista.indexOf(boton));
       visor.showModal();
+      raiz.classList.add('visor-abierto');
     }
 
     document.addEventListener('click', function (e) {
@@ -101,7 +115,10 @@
     visor.addEventListener('click', function (e) {
       if (e.target === visor || e.target.classList.contains('visor-foto')) visor.close();
     });
-    visor.addEventListener('close', function () { if (origen) origen.focus(); });
+    visor.addEventListener('close', function () {
+      raiz.classList.remove('visor-abierto');
+      if (origen) origen.focus({ preventScroll: true });
+    });
     visor.addEventListener('keydown', function (e) {
       var avance = raiz.dir === 'rtl' ? -1 : 1;
       if (e.key === 'ArrowRight') mostrar(actual + avance);
@@ -109,13 +126,20 @@
     });
 
     // Deslizar con el dedo
-    var x0 = null;
-    visor.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    visor.addEventListener('touchend', function (e) {
+    var x0 = null, y0 = null;
+    var foto = document.getElementById('visor-foto');
+    foto.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { x0 = null; return; }
+      x0 = e.touches[0].clientX;
+      y0 = e.touches[0].clientY;
+    }, { passive: true });
+    foto.addEventListener('touchcancel', function () { x0 = null; }, { passive: true });
+    foto.addEventListener('touchend', function (e) {
       if (x0 === null) return;
       var dx = e.changedTouches[0].clientX - x0;
+      var dy = e.changedTouches[0].clientY - y0;
       x0 = null;
-      if (Math.abs(dx) < 50) return;
+      if (Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy)) return;
       var avance = raiz.dir === 'rtl' ? -1 : 1;
       mostrar(actual + (dx < 0 ? avance : -avance));
     });
