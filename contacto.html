@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto — Kandisha Pro'Art</title>
+<meta name="description" content="Teléfono, correo y dirección de Kandisha Pro'Art en Tánger.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Cabin:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="saltar" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="index.html" aria-label="Kandisha Pro'Art, inicio">
+    <span class="marca-k" aria-hidden="true">K</span>
+    <span class="marca-texto">Kandisha <em>Pro'Art</em></span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a href="index.html" data-i18n="nav.home">Inicio</a>
+    <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+    <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+    <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
+    <a href="contacto.html" aria-current="page" data-i18n="nav.contact">Contacto</a>
+  </nav>
+  <select class="idioma" id="idioma" aria-label="Idioma / Langue / اللغة">
+    <option value="es">ES</option>
+    <option value="fr">FR</option>
+    <option value="ar">عربي</option>
+  </select>
+  <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="nav" data-i18n="menu">Menú</button>
+</header>
+
+<main id="contenido">
+  <section class="cabeza-pagina malla">
+    <h1 data-i18n="con.h1">Hablemos de su espacio</h1>
+    <p data-i18n="con.lead">Llámenos, escríbanos o pase por el estudio. La primera conversación sirve para entender qué necesita.</p>
+  </section>
+
+  <section class="seccion contacto">
+    <ul class="contacto-lista">
+      <li>
+        <span data-i18n="con.phone">Teléfono</span>
+        <a class="dato" href="tel:+212539321959">+212 5393-21959</a>
+      </li>
+      <li>
+        <span data-i18n="con.mail">Correo</span>
+        <a class="dato" href="mailto:kandisha.pro.art@gmail.com">kandisha.pro.art@gmail.com</a>
+      </li>
+      <li>
+        <span data-i18n="con.addr">Estudio</span>
+        <address>Imm. Côte d'Or, n.º 38<br>Angle Av. Youssef Ben Tachfin et Rue Rachid Reda<br><span data-i18n="con.city">Tánger, Marruecos</span></address>
+        <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Imm+C%C3%B4te+d%27Or+Avenue+Youssef+Ben+Tachfine+Tanger" target="_blank" rel="noopener" data-i18n="con.map">Cómo llegar</a>
+      </li>
+      <li>
+        <span>Facebook</span>
+        <a class="enlace" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener">KandishaProArt</a>
+      </li>
+    </ul>
+
+    <form class="formulario" id="formulario" novalidate>
+      <div class="campo">
+        <label for="f-nombre" data-i18n="form.name">Nombre</label>
+        <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+      </div>
+      <div class="campo">
+        <label for="f-tel" data-i18n="form.tel">Teléfono</label>
+        <input id="f-tel" name="telefono" type="tel" autocomplete="tel">
+      </div>
+      <div class="campo">
+        <label for="f-tipo" data-i18n="form.type">Tipo de proyecto</label>
+        <select id="f-tipo" name="tipo">
+          <option data-i18n="s1.t">Arquitectura de interiores</option>
+          <option data-i18n="s2.t">Diseño exterior</option>
+          <option data-i18n="s3.t">Realización 3D</option>
+          <option data-i18n="s4.t">Decoración</option>
+          <option data-i18n="s5.t">Exposiciones</option>
+          <option data-i18n="s6.t">Diseño web</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="f-msg" data-i18n="form.msg">Cuéntenos el proyecto</label>
+        <textarea id="f-msg" name="mensaje" rows="5" required></textarea>
+      </div>
+      <p class="form-error" id="form-error" role="alert" hidden data-i18n="form.error">Escriba su nombre y unas líneas sobre el proyecto.</p>
+      <button class="boton boton-sello" type="submit" data-i18n="form.send">Abrir el correo con mi mensaje</button>
+      <p class="form-nota" data-i18n="form.note">Se abrirá su programa de correo con el mensaje listo para enviar.</p>
+    </form>
+  </section>
+</main>
+
+<footer class="pie">
+  <img class="pie-logo" src="assets/logo-kandisha.webp" width="2000" height="1047" loading="lazy" alt="Kamal Bounous, Kandisha Pro'Art: architecture, conception, design">
+  <div class="pie-fila">
+    <span data-i18n="foot">© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.</span>
+    <nav class="pie-nav" aria-label="Pie">
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+      <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+      <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <a href="tel:+212539321959">+212 5393-21959</a>
+  </div>
+</footer>
+
+<script src="js/textos-fr.js" defer></script>
+<script src="js/textos-ar.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proyectos — Kandisha Pro'Art</title>
+<meta name="description" content="Viviendas, interiores y locales comerciales diseñados y modelados en 3D por Kandisha Pro'Art en Tánger.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Cabin:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="saltar" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="index.html" aria-label="Kandisha Pro'Art, inicio">
+    <span class="marca-k" aria-hidden="true">K</span>
+    <span class="marca-texto">Kandisha <em>Pro'Art</em></span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a href="index.html" data-i18n="nav.home">Inicio</a>
+    <a href="proyectos.html" aria-current="page" data-i18n="nav.projects">Proyectos</a>
+    <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+    <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
+    <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+  </nav>
+  <select class="idioma" id="idioma" aria-label="Idioma / Langue / اللغة">
+    <option value="es">ES</option>
+    <option value="fr">FR</option>
+    <option value="ar">عربي</option>
+  </select>
+  <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="nav" data-i18n="menu">Menú</button>
+</header>
+
+<main id="contenido">
+  <section class="cabeza-pagina malla">
+    <h1 data-i18n="proj.h1">Proyectos</h1>
+    <p data-i18n="proj.lead">Viviendas, interiores y locales comerciales diseñados y modelados en 3D por el estudio.</p>
+  </section>
+
+  <section class="seccion seccion-blanca">
+    <div class="fila-titulo">
+      <div class="filtros" role="group" aria-label="Filtrar proyectos">
+        <button type="button" class="filtro" data-filtro="todo" aria-pressed="true" data-i18n="cat.all">Todo</button>
+        <button type="button" class="filtro" data-filtro="ext" aria-pressed="false" data-i18n="cat.ext">Exterior</button>
+        <button type="button" class="filtro" data-filtro="int" aria-pressed="false" data-i18n="cat.int">Interior</button>
+        <button type="button" class="filtro" data-filtro="com" aria-pressed="false" data-i18n="cat.com">Comercial</button>
+      </div>
+    </div>
+    <div class="obras-muro">
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/villa-porche-1.webp" width="1279" height="719" alt="Vivienda con porche y entrada de lamas de madera"></button>
+        <figcaption><span data-i18n="p.porche1">Vivienda con porche y entrada de lamas de madera</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/casa-dos-plantas.jpg" width="1180" height="719" alt="Casa de dos plantas con alero de madera"></button>
+        <figcaption><span data-i18n="p.dosplantas">Casa de dos plantas con alero de madera</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/cocina-bano-marmol.jpg" width="1054" height="2048" alt="Cocina y baño en mármol"></button>
+        <figcaption><span data-i18n="p.marmol">Cocina y baño en mármol</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/casa-celosia.jpg" width="996" height="899" alt="Casa con celosía en el porche"></button>
+        <figcaption><span data-i18n="p.celosia">Casa con celosía en el porche</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/salon-comedor.jpg" width="960" height="576" alt="Salón y comedor abiertos a la luz"></button>
+        <figcaption><span data-i18n="p.salon1">Salón y comedor abiertos a la luz</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/villa-porche-2.webp" width="1279" height="915" alt="La misma vivienda, vista desde la calle"></button>
+        <figcaption><span data-i18n="p.porche2">La misma vivienda, vista desde la calle</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/pasillo-madera.jpg" width="1200" height="1756" alt="Pasillo con vigas de madera y escalera"></button>
+        <figcaption><span data-i18n="p.pasillo">Pasillo con vigas de madera y escalera</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/villa-piscina.jpg" width="1290" height="1544" alt="Villa con piscina y jardín"></button>
+        <figcaption><span data-i18n="p.villa">Villa con piscina y jardín</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/patio-interior.jpg" width="960" height="960" alt="Patio interior acristalado"></button>
+        <figcaption><span data-i18n="p.patioint">Patio interior acristalado</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/casa-ladrillo.webp" width="1279" height="1129" alt="Casa de una planta con ladrillo visto"></button>
+        <figcaption><span data-i18n="p.ladrillo">Casa de una planta con ladrillo visto</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/salon-abierto.jpg" width="960" height="450" alt="Salón diáfano con jardín vertical"></button>
+        <figcaption><span data-i18n="p.salon2">Salón diáfano con jardín vertical</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/villa-porche-3.jpg" width="1279" height="719" alt="El camino de entrada entre el jardín"></button>
+        <figcaption><span data-i18n="p.porche3">El camino de entrada entre el jardín</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/pabellon-jardin.jpg" width="771" height="433" alt="Pabellón de jardín con paneles de madera"></button>
+        <figcaption><span data-i18n="p.pabellon">Pabellón de jardín con paneles de madera</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+    </div>
+    <h2 class="titulo-menor" data-i18n="proj.more">Más proyectos</h2>
+    <div class="obras-pequenas">
+      <figure class="obra" data-tipo="ext">
+        <img loading="lazy" src="assets/proyectos/villa-ladera.png" width="206" height="206" alt="Villa en ladera con terrazas">
+        <figcaption><span data-i18n="p.ladera">Villa en ladera con terrazas</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <img loading="lazy" src="assets/proyectos/salon-marroqui.png" width="206" height="206" alt="Salón marroquí con techo iluminado">
+        <figcaption><span data-i18n="p.salon">Salón marroquí con techo iluminado</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int">
+        <img loading="lazy" src="assets/proyectos/apartamento.png" width="206" height="206" alt="Apartamento: salón, comedor y dormitorio">
+        <figcaption><span data-i18n="p.apto">Apartamento: salón, comedor y dormitorio</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="com">
+        <img loading="lazy" src="assets/proyectos/pasteleria.png" width="206" height="206" alt="Pastelería y salón de té">
+        <figcaption><span data-i18n="p.paste">Pastelería y salón de té</span><small data-i18n="cat.com">Comercial</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="com">
+        <img loading="lazy" src="assets/proyectos/cafe-azul.png" width="206" height="206" alt="Cafetería en dos niveles">
+        <figcaption><span data-i18n="p.cafe">Cafetería en dos niveles</span><small data-i18n="cat.com">Comercial</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="com">
+        <img loading="lazy" src="assets/proyectos/restaurante-madera.png" width="206" height="206" alt="Restaurante con techo de lamas">
+        <figcaption><span data-i18n="p.resto2">Restaurante con techo de lamas</span><small data-i18n="cat.com">Comercial</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="com">
+        <img loading="lazy" src="assets/proyectos/restaurante-industrial.png" width="206" height="206" alt="Restaurante de estilo industrial">
+        <figcaption><span data-i18n="p.resto1">Restaurante de estilo industrial</span><small data-i18n="cat.com">Comercial</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <img loading="lazy" src="assets/proyectos/pergola-piscina.png" width="206" height="206" alt="Pérgola de madera junto a la piscina">
+        <figcaption><span data-i18n="p.pergola">Pérgola de madera junto a la piscina</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext">
+        <img loading="lazy" src="assets/proyectos/patio-palmera.png" width="206" height="206" alt="Patio trasero con porche">
+        <figcaption><span data-i18n="p.patio">Patio trasero con porche</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="seccion malla llamada">
+    <div>
+      <h2 data-i18n="proj.cta.t">¿Tiene un espacio en mente?</h2>
+      <p data-i18n="proj.cta.p">Enséñenos el plano, unas fotos o solo la idea. Le diremos cómo lo abordaríamos.</p>
+    </div>
+    <div>
+      <a class="llamada-tel" href="tel:+212539321959">+212 5393-21959</a>
+      <a class="boton boton-sello" href="contacto.html" data-i18n="con.cta">Escribir al estudio</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <img class="pie-logo" src="assets/logo-kandisha.webp" width="2000" height="1047" loading="lazy" alt="Kamal Bounous, Kandisha Pro'Art: architecture, conception, design">
+  <div class="pie-fila">
+    <span data-i18n="foot">© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.</span>
+    <nav class="pie-nav" aria-label="Pie">
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+      <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+      <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <a href="tel:+212539321959">+212 5393-21959</a>
+  </div>
+</footer>
+
+<dialog class="visor" id="visor" data-i18n-aria="lb.label" aria-label="Foto ampliada">
+  <div class="visor-barra">
+    <span id="visor-cuenta" dir="ltr"></span>
+    <button type="button" class="visor-boton" id="visor-cerrar" data-i18n="lb.close">Cerrar</button>
+  </div>
+  <div class="visor-foto" id="visor-foto"></div>
+  <div class="visor-pie">
+    <button type="button" class="visor-boton" id="visor-ant" data-i18n="lb.prev">Anterior</button>
+    <p id="visor-texto"></p>
+    <button type="button" class="visor-boton" id="visor-sig" data-i18n="lb.next">Siguiente</button>
+  </div>
+</dialog>
+
+<script src="js/textos-fr.js" defer></script>
+<script src="js/textos-ar.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
