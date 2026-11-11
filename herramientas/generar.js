@@ -140,7 +140,7 @@ const ta = k => ` data-i18n-aria="${k}" aria-label="${es(k)}"`;
 // grande = true: la foto se puede ampliar en el visor
 function obra(archivo, clave, cat, w, h, grande) {
   const img = `<img loading="lazy" src="assets/proyectos/${archivo}" width="${w}" height="${h}" alt="${es(clave)}">`;
-  return `<figure class="obra" data-tipo="${cat}">
+  return `<figure class="obra" data-tipo="${cat}" style="--ar:${(w / h).toFixed(3)}">
         ${grande ? `<button type="button" class="obra-abrir"${ta('lb.open')}>${img}</button>` : img}
         <figcaption><span${t(clave)}</span><small${t(CAT[cat])}</small></figcaption>
       </figure>`;
@@ -189,6 +189,41 @@ const cabeza = (h1, lead) => `<section class="cabeza-pagina malla">
     <p${t(lead)}</p>
   </section>`;
 
+// Alzado de una vivienda que se traza línea a línea en la pantalla de carga
+const TRAZOS = [
+  'M8 162 H312',
+  'M40 82 H192 V98 H40 Z',
+  'M48 98 V162',
+  'M176 98 V162',
+  'M152 60 H300',
+  'M192 60 V82',
+  'M290 60 V162',
+  'M214 30 H250 V162',
+  'M214 30 V162',
+  'M223 30 V162', 'M232 30 V162', 'M241 30 V162',
+  'M258 112 H284 V162', 'M258 112 V162', 'M271 112 V162',
+  'M70 162 V128 H150 V162',
+  'M22 162 C22 138 20 120 18 104',
+  'M18 104 C8 94 2 98 -2 106', 'M18 104 C28 92 36 96 40 104', 'M18 104 C14 90 6 86 0 88', 'M18 104 C24 88 32 86 37 90'
+];
+const CARGA = `<div class="carga malla" id="carga" aria-hidden="true">
+  <svg class="carga-dibujo" viewBox="-4 20 320 150" role="presentation">
+    ${TRAZOS.map((d, i) => `<path${i > 8 ? ' class="fino"' : ''} pathLength="1" style="--d:${i}" d="${d}"/>`).join('\n    ')}
+  </svg>
+  <div class="carga-barra"></div>
+  <div class="carga-pie">
+    <span class="carga-marca">Kandisha <em>Pro'Art</em></span>
+    <span class="carga-num" id="carga-num">0</span>
+  </div>
+</div>
+<div class="telon" aria-hidden="true"></div>
+`;
+const CINTA = `<div class="cinta malla" aria-hidden="true">
+    <div class="cinta-pista">
+      ${[0, 1].map(() => '<div class="cinta-grupo"><span>Architecture</span><i></i><span>Conception</span><i></i><span>Design</span><i></i><span>3D</span><i></i></div>').join('\n      ')}
+    </div>
+  </div>`;
+
 const PAGINAS = {
   'index.html': {
     titulo: "Kandisha Pro'Art — Arquitectura interior, exterior y 3D en Tánger",
@@ -222,6 +257,8 @@ const PAGINAS = {
       ${g('celosia')}
     </div>
   </section>
+
+  ${CINTA}
 
   <section class="seccion">
     <div class="fila-titulo">
@@ -391,8 +428,19 @@ function pagina(archivo, p) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Cabin:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/motion.css">
+<script>
+// Decide antes de pintar si hay animaciones y qué entrada toca: carga completa o telón corto
+(function (r) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var visto = false;
+  try { visto = !!sessionStorage.getItem("kandisha-visto"); } catch (e) {}
+  r.classList.add("anim", visto ? "entrada-corta" : "entrada-larga");
+})(document.documentElement);
+</script>
 </head>
 <body>
+${CARGA}
 <a class="saltar" href="#contenido"${t('skip')}</a>
 
 <header class="cabecera" id="cabecera">
@@ -442,6 +490,7 @@ ${p.cuerpo.includes('obra-abrir') ? `<dialog class="visor" id="visor"${ta('lb.la
 ` : ''}<script src="js/textos-fr.js" defer></script>
 <script src="js/textos-ar.js" defer></script>
 <script src="js/main.js" defer></script>
+<script src="js/motion.js" defer></script>
 </body>
 </html>
 `;

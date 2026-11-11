@@ -180,7 +180,7 @@ select.idioma { padding-inline: 0.9rem 0.6rem; }
 }
 .portada-sub { margin-top: 1.5rem; font-size: 1.15rem; color: #d5d7d9; max-width: 30rem; }
 .portada-foto { margin: 0; position: relative; min-height: 20rem; }
-.portada-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portada-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left bottom; }
 
 /* ---------- Cabeza de páginas interiores ---------- */
 
@@ -238,14 +238,10 @@ select.idioma { padding-inline: 0.9rem 0.6rem; }
 }
 .obra figcaption small { font-weight: 400; font-size: 0.88rem; color: var(--tinta-suave); white-space: nowrap; }
 
-.obras-grandes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 0.75rem;
-}
-.obras-grandes .obra img { aspect-ratio: 5 / 4; }
-.obras-grandes .obra-panoramica { grid-column: 1 / -1; }
-.obras-grandes .obra-panoramica img { aspect-ratio: 16 / 9; }
+/* Cada foto conserva su proporción (--ar = ancho / alto) y todas igualan la altura */
+.obras-grandes { display: flex; gap: 1rem 0.75rem; }
+.obras-grandes .obra { flex: var(--ar, 1) 1 0; min-width: 0; }
+.obras-grandes .obra img { height: auto; }
 
 .obras-pequenas {
   display: grid;
@@ -353,7 +349,7 @@ select.idioma { padding-inline: 0.9rem 0.6rem; }
 .principios p { margin-top: 0.75rem; color: var(--tinta-suave); }
 
 .foto-ancha { margin: 0; }
-.foto-ancha img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
+.foto-ancha img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: left bottom; }
 
 /* ---------- Llamada final ---------- */
 
@@ -554,8 +550,8 @@ a[href^="tel:"], a[href^="mailto:"], address { direction: ltr; unicode-bidi: iso
 }
 
 @media (max-width: 38rem) {
-  .obras-grandes { grid-template-columns: minmax(0, 1fr); }
-  .obras-grandes .obra-panoramica img { aspect-ratio: 4 / 3; }
+  .obras-grandes { flex-direction: column; }
+  .obras-grandes .obra { flex: none; }
   .obras-pequenas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .obras-muro { column-count: 1; }
   .visor-pie p { display: none; }

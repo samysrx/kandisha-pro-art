@@ -1,0 +1,218 @@
+/* =====================================================================
+   MOVIMIENTO
+   Casi todo depende de clases que solo existen si el visitante no ha
+   pedido reducir el movimiento (html.anim la pone un script en <head>,
+   html.mov la pone js/motion.js).
+   ===================================================================== */
+
+/* ---------- Pantalla de carga ---------- */
+
+.carga, .telon { display: none; }
+
+html.entrada-larga .carga {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.75rem;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  padding: var(--borde);
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+  /* si el script fallara, la pantalla se retira sola */
+  animation: carga-emergencia 0.01s 7s forwards;
+}
+html.entrada-larga .carga.fuera { clip-path: inset(0 0 100% 0); }
+html.entrada-larga:not(.lista) body { overflow: hidden; }
+@keyframes carga-emergencia { to { visibility: hidden; } }
+
+.carga-dibujo { width: min(80vw, 34rem); height: auto; overflow: visible; }
+.carga-dibujo path {
+  fill: none;
+  stroke: var(--cal);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trazo 1.1s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--d, 0) * 0.07s);
+}
+.carga-dibujo .fino { stroke: var(--acero); stroke-width: 1; }
+@keyframes trazo { to { stroke-dashoffset: 0; } }
+
+.carga-pie {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  width: min(80vw, 34rem);
+  direction: ltr;
+}
+.carga-marca { font-family: "Cabin", sans-serif; font-style: italic; font-weight: 600; font-size: 1.1rem; }
+.carga-marca em { font-weight: 400; color: var(--acero); }
+.carga-num {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-weight: 800;
+  font-size: 3.25rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.carga-barra { width: min(80vw, 34rem); height: 2px; background: rgba(255, 255, 255, 0.16); direction: ltr; }
+.carga-barra::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: var(--sello-claro);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+}
+.carga > * { transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1); }
+.carga.fuera > * { transform: translateY(-4rem); }
+
+/* ---------- Telón entre páginas ---------- */
+
+html.entrada-corta .telon, html.saliendo .telon {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--carbon);
+}
+html.entrada-corta .telon { animation: telon-fuera 0.55s cubic-bezier(0.76, 0, 0.24, 1) 0.05s forwards; }
+html.saliendo .telon { animation: telon-dentro 0.34s cubic-bezier(0.76, 0, 0.24, 1) forwards; }
+@keyframes telon-fuera { to { transform: translateY(-100%); } }
+@keyframes telon-dentro { from { transform: translateY(100%); } to { transform: none; } }
+
+/* ---------- Titulares palabra a palabra ---------- */
+
+.pal { display: inline-block; overflow: hidden; vertical-align: bottom; padding-block: 0.08em; margin-block: -0.08em; }
+.pal > span {
+  display: inline-block;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 55ms);
+}
+html.mov .partido .pal > span { transform: translateY(115%); }
+html.mov.lista .portada h1 .pal > span,
+html.mov.lista .cabeza-pagina h1 .pal > span,
+html.mov .partido.visto .pal > span { transform: none; }
+:lang(ar) .pal { padding-block: 0.3em; margin-block: -0.3em; }
+
+/* ---------- Entrada de la portada ---------- */
+
+html.mov .portada-sub, html.mov .portada .acciones, html.mov .cabeza-pagina p {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity 0.8s, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html.mov.lista .portada-sub, html.mov.lista .cabeza-pagina p { opacity: 1; transform: none; transition-delay: 0.45s; }
+html.mov.lista .portada .acciones { opacity: 1; transform: none; transition-delay: 0.6s; }
+
+.portada-foto, .foto-ancha { overflow: hidden; }
+html.mov .portada-foto { clip-path: inset(0 0 0 100%); transition: clip-path 1.3s cubic-bezier(0.76, 0, 0.24, 1) 0.1s; }
+html.mov[dir="rtl"] .portada-foto { clip-path: inset(0 100% 0 0); }
+html.mov.lista .portada-foto { clip-path: inset(0 0 0 0); }
+
+/* Línea que se traza bajo el título de las páginas interiores */
+.cabeza-pagina { position: relative; }
+html.mov .cabeza-pagina::after {
+  content: "";
+  position: absolute;
+  inset: auto var(--lado) 0;
+  height: 2px;
+  background: var(--sello-claro);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.3s;
+}
+html.mov[dir="rtl"] .cabeza-pagina::after { transform-origin: right; }
+html.mov.lista .cabeza-pagina::after { transform: scaleX(1); }
+
+/* ---------- Entradas al desplazar ---------- */
+
+html.mov .rev-sube {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.8s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--n, 0) * 90ms);
+}
+html.mov .rev-sube.visto { opacity: 1; transform: none; }
+
+html.mov .rev-foto img {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1), filter 0.3s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html.mov .rev-foto.visto img { clip-path: inset(0 0 0 0); }
+html.mov .rev-foto figcaption { opacity: 0; transition: opacity 0.6s 0.5s; }
+html.mov .rev-foto.visto figcaption { opacity: 1; }
+
+/* El sello cae sobre el papel */
+html.mov .rev-sello { opacity: 0; }
+html.mov .rev-sello.visto { animation: sellar 0.5s cubic-bezier(0.5, 0, 0.9, 0.6) 0.25s both; }
+@keyframes sellar {
+  0% { opacity: 0; transform: rotate(8deg) scale(1.9); }
+  70% { opacity: 1; transform: rotate(-9deg) scale(0.94); }
+  100% { opacity: 1; transform: rotate(-7deg) scale(1); }
+}
+
+/* ---------- Cinta animada ---------- */
+
+.cinta { overflow: hidden; padding: clamp(1.25rem, 3vw, 2.25rem) 0; direction: ltr; }
+.cinta-pista { display: flex; width: max-content; }
+html.mov .cinta-pista { animation: cinta 36s linear infinite; }
+.cinta-grupo {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-inline-end: clamp(1.5rem, 4vw, 3.5rem);
+  font-family: "Big Shoulders Display", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+.cinta-grupo span:nth-of-type(even) { color: transparent; -webkit-text-stroke: 1.5px var(--acero); }
+.cinta-grupo i { width: 0.22em; height: 0.22em; background: var(--sello-claro); border-radius: 50%; flex: none; }
+@keyframes cinta { to { transform: translateX(-50%); } }
+
+/* ---------- Cabecera que se esconde al bajar ---------- */
+
+.cabecera { transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.cabecera.oculta { transform: translateY(-100%); }
+
+/* ---------- Detalles al pasar el ratón ---------- */
+
+.obra-abrir { overflow: hidden; }
+.obra-abrir img { transition: filter 0.3s, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+.servicios-lista li { position: relative; transition: padding 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.servicios-lista li::before {
+  content: "";
+  position: absolute;
+  inset-block: 1.5rem;
+  inset-inline-start: 0;
+  width: 3px;
+  background: var(--sello);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (hover: hover) {
+  html.anim .servicios-lista li:hover { padding-inline-start: 1.25rem; }
+  html.anim .servicios-lista li:hover::before { transform: scaleY(1); }
+}
+
+html.anim .boton { transition: background-color 0.15s, border-color 0.15s, transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1); }
+html.anim .boton:hover { transform: translateY(-2px); }
+html.anim .boton:active { transform: none; }
+
+/* ---------- Visor ---------- */
+
+html.anim .visor[open] { animation: visor-entra 0.3s ease-out; }
+@keyframes visor-entra { from { opacity: 0; } }
+html.anim .visor-foto img { animation: visor-foto 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+@keyframes visor-foto { from { opacity: 0; transform: scale(0.97); } }
+
+/* Las entradas con escala o desplazamiento no deben crear barra horizontal */
+body { overflow-x: clip; }
