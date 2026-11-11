@@ -496,6 +496,7 @@ ${p.cuerpo.includes('obra-abrir') ? `<dialog class="visor" id="visor"${ta('lb.la
 <script src="js/textos-ar.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/motion.js" defer></script>
+<script src="js/analitica.js" defer></script>
 </body>
 </html>
 `;
