@@ -125,6 +125,17 @@ const T = {
   'form.error': ['Escriba su nombre y unas líneas sobre el proyecto.', 'Indiquez votre nom et quelques lignes sur le projet.'],
   'form.send': ['Abrir el correo con mi mensaje', "Ouvrir l'e-mail avec mon message"],
   'form.note': ['Se abrirá su programa de correo con el mensaje listo para enviar.', "Votre messagerie s'ouvrira avec le message prêt à envoyer."],
+  'proj.feat': ['Proyecto destacado', 'Projet à la une'],
+  'proj.feat.t': ['Una vivienda, tres vistas', 'Une maison, trois vues'],
+  'proj.feat.p': ['Porche volado, entrada de lamas de madera y jardín delantero. El mismo proyecto modelado en 3D desde la fachada, la calle y el camino de entrada.', "Auvent en porte-à-faux, entrée en lames de bois et jardin devant. Le même projet modélisé en 3D depuis la façade, la rue et l'allée d'entrée."],
+  'proj.all': ['Todos los proyectos', 'Tous les projets'],
+  'serv.also': ['También hacemos', 'Nous faisons aussi'],
+  'foot.tag': ['Arquitectura, concepción y diseño en Tánger.', 'Architecture, conception et design à Tanger.'],
+  'cook.title': ['Cookies y privacidad', 'Cookies et confidentialité'],
+  'cook.text': ['Guardamos en su navegador el idioma y el tema que elija. Si lo acepta, medimos también las visitas de forma anónima con Cloudflare Web Analytics.', "Nous enregistrons dans votre navigateur la langue et le thème choisis. Si vous l'acceptez, nous mesurons aussi les visites de façon anonyme avec Cloudflare Web Analytics."],
+  'cook.yes': ['Aceptar', 'Accepter'],
+  'cook.no': ['Rechazar', 'Refuser'],
+  'cook.prefs': ['Preferencias de cookies', 'Préférences de cookies'],
   'foot': ["© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.", "© 2026 Kandisha Pro'Art, Kamal Bounous. Tanger."]
 };
 
@@ -161,7 +172,27 @@ const GR = {
   pabellon: ['pabellon-jardin.jpg', 'p.pabellon', 'ext', 771, 433]
 };
 const g = k => obra(...GR[k], true);
-const MURO = Object.keys(GR).map(g).join('\n      ');
+const DESTACADO = ['porche1', 'porche2', 'porche3'];
+const MURO = Object.keys(GR).filter(k => !DESTACADO.includes(k)).map(g).join('\n      ');
+
+// Servicio principal: foto de un proyecto junto a la explicación
+const servicioBloque = (n, k) => {
+  const [archivo, clave, , w, h] = GR[k];
+  return `<article class="servicio-bloque">
+      <figure class="servicio-bloque-foto"><img loading="lazy" src="assets/proyectos/${archivo}" width="${w}" height="${h}" alt="${es(clave)}"></figure>
+      <div class="servicio-bloque-texto">
+        <span class="servicio-num" aria-hidden="true">0${n}</span>
+        <h2${t('s' + n + '.t')}</h2>
+        <p${t('s' + n + '.d')}</p>
+        <ul>
+          <li${t('s' + n + '.a')}</li>
+          <li${t('s' + n + '.b')}</li>
+          <li${t('s' + n + '.c')}</li>
+        </ul>
+        <a class="enlace" href="proyectos.html"${t('hero.cta2')}</a>
+      </div>
+    </article>`;
+};
 const PEQ = [
   ['villa-ladera.png', 'p.ladera', 'ext'], ['salon-marroqui.png', 'p.salon', 'int'],
   ['apartamento.png', 'p.apto', 'int'], ['pasteleria.png', 'p.paste', 'com'], ['cafe-azul.png', 'p.cafe', 'com'],
@@ -207,9 +238,11 @@ const TRAZOS = [
   'M18 104 C8 94 2 98 -2 106', 'M18 104 C28 92 36 96 40 104', 'M18 104 C14 90 6 86 0 88', 'M18 104 C24 88 32 86 37 90'
 ];
 const CARGA = `<div class="carga malla" id="carga" aria-hidden="true">
-  <svg class="carga-dibujo" viewBox="-4 20 320 150" role="presentation">
-    ${TRAZOS.map((d, i) => `<path${i > 8 ? ' class="fino"' : ''} pathLength="1" style="--d:${i}" d="${d}"/>`).join('\n    ')}
-  </svg>
+  <div class="carga-escena">
+    <img class="carga-foto" src="assets/proyectos/villa-porche-1.webp" width="1279" height="719" alt="">
+    <div class="carga-plano"><svg class="carga-dibujo" viewBox="-10 18 332 156" aria-hidden="true">${TRAZOS.map((d, i) => `<path${i > 15 ? ' class="fino"' : ''} style="--d:${i}" pathLength="1" d="${d}"/>`).join('')}</svg></div>
+    <span class="carga-corte"></span>
+  </div>
   <div class="carga-barra"></div>
   <div class="carga-pie">
     <span class="carga-marca">Kandisha <em>Pro'Art</em></span>
@@ -278,8 +311,24 @@ const PAGINAS = {
     desc: "Viviendas, interiores y locales comerciales diseñados y modelados en 3D por Kandisha Pro'Art en Tánger.",
     cuerpo: `${cabeza('proj.h1', 'proj.lead')}
 
+  <section class="seccion destacado">
+    <div class="destacado-texto">
+      <p class="antetitulo"${t('proj.feat')}</p>
+      <h2${t('proj.feat.t')}</h2>
+      <p${t('proj.feat.p')}</p>
+    </div>
+    <div class="destacado-fotos">
+      ${g('porche1')}
+      <div class="obras-grandes">
+        ${g('porche2')}
+        ${g('porche3')}
+      </div>
+    </div>
+  </section>
+
   <section class="seccion seccion-blanca">
     <div class="fila-titulo">
+      <h2${t('proj.all')}</h2>
       <div class="filtros" role="group" aria-label="Filtrar proyectos">
         <button type="button" class="filtro" data-filtro="todo" aria-pressed="true"${t('cat.all')}</button>
         <button type="button" class="filtro" data-filtro="ext" aria-pressed="false"${t('cat.ext')}</button>
@@ -304,16 +353,26 @@ const PAGINAS = {
     desc: "Arquitectura de interiores, diseño exterior, realización 3D, decoración, exposiciones y diseño web en Tánger.",
     cuerpo: `${cabeza('serv.h1', 'serv.lead')}
 
-  <section class="seccion">
-    ${[1, 2, 3, 4, 5, 6].map(n => `<article class="servicio">
-      <h2${t('s' + n + '.t')}</h2>
-      <p${t('s' + n + '.d')}</p>
-      <ul>
-        <li${t('s' + n + '.a')}</li>
-        <li${t('s' + n + '.b')}</li>
-        <li${t('s' + n + '.c')}</li>
-      </ul>
-    </article>`).join('\n    ')}
+  <section class="seccion servicios-bloques">
+    ${servicioBloque(1, 'salon1')}
+    ${servicioBloque(2, 'dosplantas')}
+    ${servicioBloque(3, 'celosia')}
+  </section>
+
+  <section class="seccion seccion-blanca">
+    <h2${t('serv.also')}</h2>
+    <div class="servicios-cartas">
+      ${[4, 5, 6].map(n => `<article class="servicio-carta">
+        <span class="servicio-num" aria-hidden="true">0${n}</span>
+        <h3${t('s' + n + '.t')}</h3>
+        <p${t('s' + n + '.d')}</p>
+        <ul>
+          <li${t('s' + n + '.a')}</li>
+          <li${t('s' + n + '.b')}</li>
+          <li${t('s' + n + '.c')}</li>
+        </ul>
+      </article>`).join('\n      ')}
+    </div>
   </section>
 
   <section class="seccion malla">
@@ -446,8 +505,7 @@ ${CARGA}
 
 <header class="cabecera" id="cabecera">
   <a class="marca" href="index.html" aria-label="Kandisha Pro'Art, inicio">
-    <span class="marca-k" aria-hidden="true">K</span>
-    <span class="marca-texto">Kandisha <em>Pro'Art</em></span>
+    <span class="marca-logo"><img class="logo-claro" src="assets/logo-kandisha-proart.webp" width="2000" height="782" alt="Kamal Bounous — Kandisha Pro’Art" fetchpriority="high"><img class="logo-letras" src="assets/logo-kandisha-proart.webp" width="2000" height="782" alt="" aria-hidden="true"></span>
   </a>
   <nav class="nav" id="nav" aria-label="Principal">
     ${nav}
@@ -469,15 +527,45 @@ ${CARGA}
 </main>
 
 <footer class="pie">
-  <img class="pie-logo" src="assets/logo-kandisha.webp" width="2000" height="1047" loading="lazy" alt="Kamal Bounous, Kandisha Pro'Art: architecture, conception, design">
-  <div class="pie-fila">
-    <span${t('foot')}</span>
+  <div class="pie-columnas">
+    <div class="pie-marca">
+      <a class="pie-logo-enlace" href="index.html" aria-label="Kandisha Pro'Art, inicio">
+        <span class="marca-logo pie-marca-logo"><img class="logo-claro" src="assets/logo-kandisha-proart.webp" width="2000" height="782" loading="lazy" alt="Kamal Bounous — Kandisha Pro’Art"><img class="logo-letras" src="assets/logo-kandisha-proart.webp" width="2000" height="782" loading="lazy" alt="" aria-hidden="true"></span>
+      </a>
+      <p${t('foot.tag')}</p>
+    </div>
+    <div>
+      <h2 class="pie-titulo"${t('nav.contact')}</h2>
+      <a href="tel:+212539321959">+212 5393-21959</a>
+      <a href="mailto:kandisha.pro.art@gmail.com">kandisha.pro.art@gmail.com</a>
+      <a href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div>
+      <h2 class="pie-titulo"${t('con.addr')}</h2>
+      <address>Imm. Côte d'Or, n.º 38<br>Angle Av. Youssef Ben Tachfin et Rue Rachid Reda<br><span${t('con.city')}</span></address>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Imm+C%C3%B4te+d%27Or+Avenue+Youssef+Ben+Tachfine+Tanger" target="_blank" rel="noopener"${t('con.map')}</a>
+    </div>
     <nav class="pie-nav" aria-label="Pie">
+      <h2 class="pie-titulo"${t('menu')}</h2>
       ${pieNav}
     </nav>
-    <a href="tel:+212539321959">+212 5393-21959</a>
+  </div>
+  <div class="pie-legal">
+    <span${t('foot')}</span>
+    <button type="button" class="pie-cookies" id="cookies-abrir"${t('cook.prefs')}</button>
   </div>
 </footer>
+
+<section class="cookies" id="cookies"${ta('cook.title')} hidden>
+  <div class="cookies-texto">
+    <p class="cookies-titulo"${t('cook.title')}</p>
+    <p${t('cook.text')}</p>
+  </div>
+  <div class="cookies-acciones">
+    <button type="button" class="boton boton-linea" id="cookies-no"${t('cook.no')}</button>
+    <button type="button" class="boton boton-sello" id="cookies-si"${t('cook.yes')}</button>
+  </div>
+</section>
 
 ${p.cuerpo.includes('obra-abrir') ? `<dialog class="visor" id="visor"${ta('lb.label')}>
   <div class="visor-barra">
@@ -496,6 +584,7 @@ ${p.cuerpo.includes('obra-abrir') ? `<dialog class="visor" id="visor"${ta('lb.la
 <script src="js/textos-ar.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/motion.js" defer></script>
+<script src="js/cookies.js" defer></script>
 <script src="js/analitica.js" defer></script>
 </body>
 </html>

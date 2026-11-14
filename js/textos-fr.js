@@ -125,5 +125,16 @@ window.KANDISHA_FR = {
   "form.error": "Indiquez votre nom et quelques lignes sur le projet.",
   "form.send": "Ouvrir l'e-mail avec mon message",
   "form.note": "Votre messagerie s'ouvrira avec le message prêt à envoyer.",
+  "proj.feat": "Projet à la une",
+  "proj.feat.t": "Une maison, trois vues",
+  "proj.feat.p": "Auvent en porte-à-faux, entrée en lames de bois et jardin devant. Le même projet modélisé en 3D depuis la façade, la rue et l'allée d'entrée.",
+  "proj.all": "Tous les projets",
+  "serv.also": "Nous faisons aussi",
+  "foot.tag": "Architecture, conception et design à Tanger.",
+  "cook.title": "Cookies et confidentialité",
+  "cook.text": "Nous enregistrons dans votre navigateur la langue et le thème choisis. Si vous l'acceptez, nous mesurons aussi les visites de façon anonyme avec Cloudflare Web Analytics.",
+  "cook.yes": "Accepter",
+  "cook.no": "Refuser",
+  "cook.prefs": "Préférences de cookies",
   "foot": "© 2026 Kandisha Pro'Art, Kamal Bounous. Tanger."
 };

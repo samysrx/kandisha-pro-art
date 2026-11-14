@@ -662,3 +662,156 @@ a[href^="tel:"], a[href^="mailto:"], address { direction: ltr; unicode-bidi: iso
 @media (max-width: 23rem) {
   .marca-texto { display: none; }
 }
+
+/* Identidad original en la cabecera, con fondo claro para ambos temas. */
+:root { --cabecera-alto: 104px; }
+html { scroll-padding-top: calc(var(--cabecera-alto) + 1rem); }
+.cabecera { min-height: var(--cabecera-alto); padding-block: 10px; }
+.cabecera .marca {
+  flex: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 6px 12px;
+  border-radius: 7px;
+  background: #f9f8f5;
+  border: 1px solid #ffffff70;
+  box-shadow: 0 2px 12px #0000000a;
+  direction: ltr;
+}
+.marca-logo { position: relative; display: block; width: 146px; height: 70px; overflow: hidden; flex: none; }
+.marca-logo img { position: absolute; top: 0; left: -15.5%; width: 133.333%; max-width: none; height: 100%; object-fit: contain; }
+.cabecera.compacta { min-height: 86px; padding-block: 7px; }
+.cabecera.compacta .marca-logo { width: 126px; height: 60px; }
+.cabeza-pagina { padding-block-start: max(clamp(8rem, 16vw, 11rem), calc(var(--cabecera-alto) + 2rem)); }
+/* Logotipo sin fondo. En modo oscuro va sin placa: la esfera queda igual y una segunda
+   copia, recortada a la zona de las letras, las aclara para que se lean. */
+.cabecera .marca { background: transparent; border-color: transparent; box-shadow: none; }
+.logo-letras { display: none; }
+[data-tema="dark"] .logo-claro { clip-path: inset(0 54.1% 0 0); }
+[data-tema="dark"] .logo-letras { display: block; clip-path: inset(0 0 0 45.9%); filter: brightness(2.3) saturate(0.8); }
+@media (max-width: 60rem) {
+  .portada-texto { padding-block-start: calc(var(--cabecera-alto) + 2.5rem); }
+}
+@media (max-width: 38rem) {
+  :root { --cabecera-alto: 86px; }
+  .cabecera .marca { padding: 5px 8px; }
+  .marca-logo { width: 110px; height: 53px; }
+  .cabecera.compacta { min-height: 76px; }
+  .cabecera.compacta .marca-logo { width: 100px; height: 48px; }
+}
+@media (max-width: 23rem) {
+  .cabecera { padding-inline: 12px; gap: 6px; }
+  .cabecera .marca-logo { width: 96px; height: 46px; }
+  .cabecera .idioma { max-width: 64px; padding-inline: 8px; }
+}
+
+/* ---------- Pie en columnas ---------- */
+
+.pie { padding: clamp(3rem, 6vw, 5rem) var(--lado) 1.75rem; color: #c9ccd0; }
+.pie-columnas { display: grid; grid-template-columns: 1.5fr 1.1fr 1.4fr 0.8fr; gap: 2.5rem 3rem; align-items: start; }
+.pie-logo-enlace { display: inline-block; direction: ltr; }
+.pie-marca-logo { width: 190px; height: 91px; margin-bottom: 1rem; }
+/* El pie es siempre oscuro: las letras del logotipo van aclaradas en los dos temas */
+.pie .logo-claro { clip-path: inset(0 54.1% 0 0); }
+.pie .logo-letras { display: block; clip-path: inset(0 0 0 45.9%); filter: brightness(2.3) saturate(0.8); }
+.pie-marca p { max-width: 26ch; }
+.pie .pie-titulo { font: 600 0.9rem/1.4 var(--texto); letter-spacing: 0; color: #fff; margin-bottom: 0.9rem; }
+.pie-columnas > div > a:not(.pie-logo-enlace), .pie-nav a { display: block; width: fit-content; padding: 0.3rem 0; }
+.pie-columnas a:not(.pie-logo-enlace):hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.pie-nav { display: block; }
+.pie address { font-style: normal; line-height: 1.6; margin-bottom: 0.4rem; }
+.pie-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.88rem;
+  color: #a9adb1;
+}
+.pie-cookies { font: inherit; color: inherit; background: none; border: 0; padding: 0.6rem 0; cursor: pointer; text-decoration: underline; text-underline-offset: 0.25em; }
+.pie-cookies:hover { color: #fff; }
+
+/* ---------- Aviso de cookies ---------- */
+
+.cookies {
+  position: fixed;
+  inset: auto var(--borde) 1rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 1.25rem 1.5rem;
+  background: var(--superficie);
+  color: var(--tinta);
+  border: 1px solid var(--borde-contraste);
+  border-top: 3px solid var(--sello);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+.cookies[hidden] { display: none; }
+.cookies-titulo { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.25rem; }
+.cookies-texto p:last-child { font-size: 0.97rem; color: var(--tinta-suave); max-width: 60ch; }
+.cookies-acciones { display: flex; gap: 0.6rem; flex: none; }
+
+/* ---------- Proyectos: proyecto destacado ---------- */
+
+.antetitulo { font-weight: 600; color: var(--acento); margin-bottom: 0.9rem; }
+.destacado { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.destacado-texto { position: sticky; top: calc(var(--cabecera-alto) + 1.5rem); }
+.destacado-texto h2 { font-size: clamp(2.5rem, 4.6vw, 4rem); }
+.destacado-texto h2 + p { margin-top: 1.25rem; color: var(--tinta-suave); font-size: 1.1rem; }
+.destacado-fotos { display: grid; gap: 0.5rem; }
+.destacado-fotos .obra img { height: auto; }
+.obras-muro .obra { margin-bottom: 1rem; }
+
+/* ---------- Servicios: bloques con foto y fichas ---------- */
+
+.servicios-bloques { display: grid; gap: clamp(4rem, 9vw, 7.5rem); }
+.servicio-bloque { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.servicio-bloque:nth-child(even) .servicio-bloque-foto { order: 2; }
+.servicio-bloque-foto { margin: 0; }
+.servicio-bloque-foto img { width: 100%; height: auto; background: var(--cal-2); }
+.servicio-num {
+  display: block;
+  font-family: "Big Shoulders Display", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1;
+  color: var(--acento);
+  margin-bottom: 0.75rem;
+}
+.servicio-bloque h2 { font-size: clamp(2.25rem, 4.2vw, 3.5rem); font-weight: 700; }
+.servicio-bloque-texto > p { margin-top: 1rem; color: var(--tinta-suave); font-size: 1.1rem; }
+.servicio-bloque ul, .servicio-carta ul { list-style: none; margin: 1.5rem 0; padding: 0; border-top: 1px solid var(--borde-contraste); }
+.servicio-bloque li, .servicio-carta li { padding: 0.6rem 0; border-bottom: 1px solid var(--cal-2); font-weight: 500; }
+.servicios-cartas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); margin-top: clamp(2rem, 4vw, 3rem); }
+.servicio-carta { border-top: 2px solid var(--tinta); padding-top: 1.25rem; }
+.servicio-carta h3 { font-size: clamp(1.75rem, 3vw, 2.4rem); font-weight: 700; line-height: 1; }
+.servicio-carta p { margin-top: 0.75rem; color: var(--tinta-suave); }
+.servicio-carta ul { margin-bottom: 0; }
+:lang(ar) .servicio-bloque h2, :lang(ar) .servicio-carta h3, :lang(ar) .destacado-texto h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.4; }
+
+@media (max-width: 60rem) {
+  .pie-columnas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .destacado, .servicio-bloque { grid-template-columns: minmax(0, 1fr); }
+  .destacado-texto { position: static; }
+  .servicio-bloque:nth-child(even) .servicio-bloque-foto { order: 0; }
+  .servicios-cartas { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 46rem) {
+  .cookies { flex-direction: column; align-items: stretch; inset-inline: 0.75rem; bottom: 0.75rem; padding: 1.1rem 1.15rem; }
+  .cookies-acciones .boton { flex: 1; }
+}
+@media (max-width: 38rem) {
+  .pie-columnas { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .pie-marca-logo { width: 170px; height: 81px; }
+  .pie-columnas > div > a:not(.pie-logo-enlace), .pie-nav a { min-height: 2.75rem; display: flex; align-items: center; }
+  .pie-cookies { min-height: 2.75rem; }
+}

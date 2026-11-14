@@ -23,29 +23,11 @@
 </head>
 <body>
 <div class="carga malla" id="carga" aria-hidden="true">
-  <svg class="carga-dibujo" viewBox="-4 20 320 150" role="presentation">
-    <path pathLength="1" style="--d:0" d="M8 162 H312"/>
-    <path pathLength="1" style="--d:1" d="M40 82 H192 V98 H40 Z"/>
-    <path pathLength="1" style="--d:2" d="M48 98 V162"/>
-    <path pathLength="1" style="--d:3" d="M176 98 V162"/>
-    <path pathLength="1" style="--d:4" d="M152 60 H300"/>
-    <path pathLength="1" style="--d:5" d="M192 60 V82"/>
-    <path pathLength="1" style="--d:6" d="M290 60 V162"/>
-    <path pathLength="1" style="--d:7" d="M214 30 H250 V162"/>
-    <path pathLength="1" style="--d:8" d="M214 30 V162"/>
-    <path class="fino" pathLength="1" style="--d:9" d="M223 30 V162"/>
-    <path class="fino" pathLength="1" style="--d:10" d="M232 30 V162"/>
-    <path class="fino" pathLength="1" style="--d:11" d="M241 30 V162"/>
-    <path class="fino" pathLength="1" style="--d:12" d="M258 112 H284 V162"/>
-    <path class="fino" pathLength="1" style="--d:13" d="M258 112 V162"/>
-    <path class="fino" pathLength="1" style="--d:14" d="M271 112 V162"/>
-    <path class="fino" pathLength="1" style="--d:15" d="M70 162 V128 H150 V162"/>
-    <path class="fino" pathLength="1" style="--d:16" d="M22 162 C22 138 20 120 18 104"/>
-    <path class="fino" pathLength="1" style="--d:17" d="M18 104 C8 94 2 98 -2 106"/>
-    <path class="fino" pathLength="1" style="--d:18" d="M18 104 C28 92 36 96 40 104"/>
-    <path class="fino" pathLength="1" style="--d:19" d="M18 104 C14 90 6 86 0 88"/>
-    <path class="fino" pathLength="1" style="--d:20" d="M18 104 C24 88 32 86 37 90"/>
-  </svg>
+  <div class="carga-escena">
+    <img class="carga-foto" src="assets/proyectos/villa-porche-1.webp" width="1279" height="719" alt="">
+    <div class="carga-plano"><svg class="carga-dibujo" viewBox="-10 18 332 156" aria-hidden="true"><path style="--d:0" pathLength="1" d="M8 162 H312"/><path style="--d:1" pathLength="1" d="M40 82 H192 V98 H40 Z"/><path style="--d:2" pathLength="1" d="M48 98 V162"/><path style="--d:3" pathLength="1" d="M176 98 V162"/><path style="--d:4" pathLength="1" d="M152 60 H300"/><path style="--d:5" pathLength="1" d="M192 60 V82"/><path style="--d:6" pathLength="1" d="M290 60 V162"/><path style="--d:7" pathLength="1" d="M214 30 H250 V162"/><path style="--d:8" pathLength="1" d="M214 30 V162"/><path style="--d:9" pathLength="1" d="M223 30 V162"/><path style="--d:10" pathLength="1" d="M232 30 V162"/><path style="--d:11" pathLength="1" d="M241 30 V162"/><path style="--d:12" pathLength="1" d="M258 112 H284 V162"/><path style="--d:13" pathLength="1" d="M258 112 V162"/><path style="--d:14" pathLength="1" d="M271 112 V162"/><path style="--d:15" pathLength="1" d="M70 162 V128 H150 V162"/><path class="fino" style="--d:16" pathLength="1" d="M22 162 C22 138 20 120 18 104"/><path class="fino" style="--d:17" pathLength="1" d="M18 104 C8 94 2 98 -2 106"/><path class="fino" style="--d:18" pathLength="1" d="M18 104 C28 92 36 96 40 104"/><path class="fino" style="--d:19" pathLength="1" d="M18 104 C14 90 6 86 0 88"/><path class="fino" style="--d:20" pathLength="1" d="M18 104 C24 88 32 86 37 90"/></svg></div>
+    <span class="carga-corte"></span>
+  </div>
   <div class="carga-barra"></div>
   <div class="carga-pie">
     <span class="carga-marca">Kandisha <em>Pro'Art</em></span>
@@ -58,8 +40,7 @@
 
 <header class="cabecera" id="cabecera">
   <a class="marca" href="index.html" aria-label="Kandisha Pro'Art, inicio">
-    <span class="marca-k" aria-hidden="true">K</span>
-    <span class="marca-texto">Kandisha <em>Pro'Art</em></span>
+    <span class="marca-logo"><img class="logo-claro" src="assets/logo-kandisha-proart.webp" width="2000" height="782" alt="Kamal Bounous — Kandisha Pro’Art" fetchpriority="high"><img class="logo-letras" src="assets/logo-kandisha-proart.webp" width="2000" height="782" alt="" aria-hidden="true"></span>
   </a>
   <nav class="nav" id="nav" aria-label="Principal">
     <a href="index.html" data-i18n="nav.home">Inicio</a>
@@ -139,24 +120,55 @@
 </main>
 
 <footer class="pie">
-  <img class="pie-logo" src="assets/logo-kandisha.webp" width="2000" height="1047" loading="lazy" alt="Kamal Bounous, Kandisha Pro'Art: architecture, conception, design">
-  <div class="pie-fila">
-    <span data-i18n="foot">© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.</span>
+  <div class="pie-columnas">
+    <div class="pie-marca">
+      <a class="pie-logo-enlace" href="index.html" aria-label="Kandisha Pro'Art, inicio">
+        <span class="marca-logo pie-marca-logo"><img class="logo-claro" src="assets/logo-kandisha-proart.webp" width="2000" height="782" loading="lazy" alt="Kamal Bounous — Kandisha Pro’Art"><img class="logo-letras" src="assets/logo-kandisha-proart.webp" width="2000" height="782" loading="lazy" alt="" aria-hidden="true"></span>
+      </a>
+      <p data-i18n="foot.tag">Arquitectura, concepción y diseño en Tánger.</p>
+    </div>
+    <div>
+      <h2 class="pie-titulo" data-i18n="nav.contact">Contacto</h2>
+      <a href="tel:+212539321959">+212 5393-21959</a>
+      <a href="mailto:kandisha.pro.art@gmail.com">kandisha.pro.art@gmail.com</a>
+      <a href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div>
+      <h2 class="pie-titulo" data-i18n="con.addr">Estudio</h2>
+      <address>Imm. Côte d'Or, n.º 38<br>Angle Av. Youssef Ben Tachfin et Rue Rachid Reda<br><span data-i18n="con.city">Tánger, Marruecos</span></address>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Imm+C%C3%B4te+d%27Or+Avenue+Youssef+Ben+Tachfine+Tanger" target="_blank" rel="noopener" data-i18n="con.map">Cómo llegar</a>
+    </div>
     <nav class="pie-nav" aria-label="Pie">
+      <h2 class="pie-titulo" data-i18n="menu">Menú</h2>
       <a href="index.html" data-i18n="nav.home">Inicio</a>
       <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
       <a href="servicios.html" data-i18n="nav.services">Servicios</a>
       <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
       <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
-    <a href="tel:+212539321959">+212 5393-21959</a>
+  </div>
+  <div class="pie-legal">
+    <span data-i18n="foot">© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.</span>
+    <button type="button" class="pie-cookies" id="cookies-abrir" data-i18n="cook.prefs">Preferencias de cookies</button>
   </div>
 </footer>
+
+<section class="cookies" id="cookies" data-i18n-aria="cook.title" aria-label="Cookies y privacidad" hidden>
+  <div class="cookies-texto">
+    <p class="cookies-titulo" data-i18n="cook.title">Cookies y privacidad</p>
+    <p data-i18n="cook.text">Guardamos en su navegador el idioma y el tema que elija. Si lo acepta, medimos también las visitas de forma anónima con Cloudflare Web Analytics.</p>
+  </div>
+  <div class="cookies-acciones">
+    <button type="button" class="boton boton-linea" id="cookies-no" data-i18n="cook.no">Rechazar</button>
+    <button type="button" class="boton boton-sello" id="cookies-si" data-i18n="cook.yes">Aceptar</button>
+  </div>
+</section>
 
 <script src="js/textos-fr.js" defer></script>
 <script src="js/textos-ar.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/motion.js" defer></script>
+<script src="js/cookies.js" defer></script>
 <script src="js/analitica.js" defer></script>
 </body>
 </html>

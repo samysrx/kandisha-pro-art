@@ -3,6 +3,7 @@
    (la clase "anim" la pone un script en <head>). */
 (function () {
   var raiz = document.documentElement;
+  var reducir = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (!raiz.classList.contains('anim')) return;
   raiz.classList.add('mov');
 
@@ -24,16 +25,18 @@
     });
     el.classList.add('partido');
   }
-  $$('.portada h1, .cabeza-pagina h1, .declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2')
-    .forEach(partir);
+  var titulares = '.portada h1, .cabeza-pagina h1, .declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2';
+  $$(titulares).forEach(partir);
+  document.addEventListener('kandisha:idioma', function () { $$(titulares).forEach(partir); });
 
   /* ---------- Entradas al desplazar ---------- */
   var grupos = [
     ['.declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2', 'rev'],
     ['.declaracion-texto, .estudio-texto > p, .datos > div, .estudio-texto > .enlace, .fila-titulo > .enlace, ' +
      '.llamada p, .llamada > div:last-child, .llamada > .boton, .principios > div, .pasos li, .servicio, ' +
-     '.servicios-lista li, .contacto-lista > li, .formulario, .titulo-menor, .filtros', 'rev rev-sube'],
-    ['.obra, .foto-ancha', 'rev rev-foto'],
+     '.servicios-lista li, .contacto-lista > li, .formulario, .titulo-menor, .filtros, .pie-columnas > *, .pie-legal, ' +
+     '.destacado-texto, .servicio-bloque-texto, .servicio-carta', 'rev rev-sube'],
+    ['.obra, .foto-ancha, .servicio-bloque-foto', 'rev rev-foto'],
     ['.sello', 'rev rev-sello']
   ];
   var objetivos = [];
@@ -75,21 +78,81 @@
     })(t0);
   }
 
-  /* ---------- Cabecera que se esconde al bajar ---------- */
+  /* ---------- Cabecera, progreso y profundidad al desplazar ---------- */
   var cabecera = document.getElementById('cabecera');
-  var ultimoY = window.scrollY, pendiente = false;
+  var pendiente = false;
+  var profundidad = $$('.portada-foto, .foto-ancha');
+  var lineas = $$('.fila-titulo, .pasos');
   function alDesplazar() {
     pendiente = false;
     var y = window.scrollY;
-    if (cabecera && !cabecera.classList.contains('abierta')) {
-      cabecera.classList.toggle('oculta', y > 400 && y > ultimoY);
+    var alto = window.innerHeight;
+    if (cabecera) {
+      cabecera.classList.toggle('compacta', y > 80);
+      cabecera.style.setProperty('--lectura', Math.max(0, Math.min(1, y / Math.max(1, document.documentElement.scrollHeight - alto))));
     }
-    ultimoY = y;
+    profundidad.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > alto) return;
+      var p = Math.max(-1, Math.min(1, (alto / 2 - r.top - r.height / 2) / alto));
+      el.style.setProperty('--profundidad', reducir.matches ? '0px' : (p * Math.min(30, r.height * .035)).toFixed(2) + 'px');
+    });
+    lineas.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--trazo', Math.max(0, Math.min(1, (alto - r.top) / (alto * .7))));
+    });
   }
-  window.addEventListener('scroll', function () {
+  function pedirCuadro() {
     if (!pendiente) { pendiente = true; requestAnimationFrame(alDesplazar); }
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', pedirCuadro, { passive: true });
+  window.addEventListener('resize', pedirCuadro);
+  window.addEventListener('load', pedirCuadro);
+  document.addEventListener('kandisha:idioma', pedirCuadro);
+  document.addEventListener('kandisha:filtro', pedirCuadro);
   alDesplazar();
+
+  /* Respuesta al puntero solo en dispositivos con ratón. */
+  var raton = window.matchMedia('(hover: hover) and (pointer: fine)');
+  $$('.cabecera .marca, .boton').forEach(function (el) {
+    var frame = 0;
+    el.addEventListener('pointermove', function (e) {
+      if (!raton.matches || reducir.matches) return;
+      var r = el.getBoundingClientRect(), x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(function () {
+        el.style.setProperty('--puntero-x', (x * .045).toFixed(2) + 'px');
+        el.style.setProperty('--puntero-y', (y * .08).toFixed(2) + 'px');
+      });
+    });
+    el.addEventListener('pointerleave', function () {
+      cancelAnimationFrame(frame);
+      el.style.setProperty('--puntero-x', '0px'); el.style.setProperty('--puntero-y', '0px');
+    });
+  });
+
+  /* Al filtrar, vuelven a entrar las imágenes que permanecen visibles. */
+  document.addEventListener('kandisha:filtro', function () {
+    if (reducir.matches) return;
+    $$('.obra').forEach(function (el, i) {
+      if (el._filtroAnimacion) el._filtroAnimacion.cancel();
+      if (el.hidden || !el.animate) return;
+      el._filtroAnimacion = el.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 480, delay: Math.min(i, 5) * 45, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    });
+  });
+
+  /* Si la preferencia cambia durante la visita, se muestra todo sin animación. */
+  reducir.addEventListener('change', function () {
+    raiz.classList.toggle('anim', !reducir.matches);
+    raiz.classList.toggle('mov', !reducir.matches);
+    if (reducir.matches) {
+      raiz.classList.add('lista');
+      objetivos.forEach(function (el) { el.classList.add('visto'); });
+      $$('.obra').forEach(function (el) { if (el._filtroAnimacion) el._filtroAnimacion.cancel(); });
+    }
+    pedirCuadro();
+  });
 
   /* ---------- Pantalla de carga (primera visita de la sesión) ---------- */
   function lista() { raiz.classList.add('lista'); }
@@ -102,10 +165,13 @@
     window.addEventListener('load', function () { cargada = true; });
     (function paso(ahora) {
       var t = ahora - t0;
-      var p = Math.min(1, t / 1900);
+      var p = Math.min(1, t / 2400);
       if (!cargada && t < 4500) p = Math.min(p, 0.92);   // espera a que la página termine de cargar
       num.textContent = Math.round(p * 100);
       carga.style.setProperty('--p', p);
+      // La foto empieza a sustituir al plano cuando el alzado ya está casi trazado
+      var r = Math.max(0, (p - 0.38) / 0.62);
+      carga.style.setProperty('--r', r * r * (3 - 2 * r));
       if (p < 1) { requestAnimationFrame(paso); return; }
       try { sessionStorage.setItem('kandisha-visto', '1'); } catch (e) {}
       setTimeout(function () {

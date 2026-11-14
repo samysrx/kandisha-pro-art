@@ -50,6 +50,7 @@
     raiz.lang = idioma;
     raiz.dir = idioma === 'ar' ? 'rtl' : 'ltr';
     selector.value = idioma;
+    document.dispatchEvent(new CustomEvent('kandisha:idioma'));
     try { localStorage.setItem('kandisha-idioma', idioma); } catch (e) {}
   }
 
@@ -63,7 +64,7 @@
 
   /* ---------- Filtro de proyectos ---------- */
   var filtros = [].slice.call(document.querySelectorAll('.filtro'));
-  var obras = [].slice.call(document.querySelectorAll('.obra'));
+  var obras = [].slice.call(document.querySelectorAll('.obras-muro .obra, .obras-pequenas .obra'));
   filtros.forEach(function (f) {
     f.addEventListener('click', function () {
       var tipo = f.getAttribute('data-filtro');
@@ -74,6 +75,7 @@
       var menores = document.querySelector('.obras-pequenas');
       var titulo = document.querySelector('.titulo-menor');
       if (menores && titulo) titulo.hidden = !menores.querySelector('.obra:not([hidden])');
+      document.dispatchEvent(new CustomEvent('kandisha:filtro'));
     });
   });
 
