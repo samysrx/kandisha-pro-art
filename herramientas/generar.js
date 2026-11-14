@@ -132,10 +132,46 @@ const T = {
   'serv.also': ['También hacemos', 'Nous faisons aussi'],
   'foot.tag': ['Arquitectura, concepción y diseño en Tánger.', 'Architecture, conception et design à Tanger.'],
   'cook.title': ['Cookies y privacidad', 'Cookies et confidentialité'],
-  'cook.text': ['Guardamos en su navegador el idioma y el tema que elija. Si lo acepta, medimos también las visitas de forma anónima con Cloudflare Web Analytics.', "Nous enregistrons dans votre navigateur la langue et le thème choisis. Si vous l'acceptez, nous mesurons aussi les visites de façon anonyme avec Cloudflare Web Analytics."],
   'cook.yes': ['Aceptar', 'Accepter'],
   'cook.no': ['Rechazar', 'Refuser'],
   'cook.prefs': ['Preferencias de cookies', 'Préférences de cookies'],
+  'stu.f3': ['servicios, del plano a la decoración', 'services, du plan à la décoration'],
+  'con.form.p': ['Unas líneas bastan: qué espacio es, dónde está y qué le gustaría cambiar.', "Quelques lignes suffisent : de quel espace il s'agit, où il se trouve et ce que vous aimeriez changer."],
+  'cook.text': ["Usamos almacenamiento necesario para recordar su idioma, el tema y sus preferencias. Con su permiso, medimos además las visitas de forma anónima.", "Nous utilisons un stockage nécessaire pour mémoriser votre langue, le thème et vos préférences. Avec votre accord, nous mesurons aussi les visites de façon anonyme."],
+  'cook.config': ["Configurar", "Configurer"],
+  'cook.more': ["Política de privacidad", "Politique de confidentialité"],
+  'cook.cfg.intro': ["Elija qué permite. Puede cambiarlo cuando quiera desde el pie de cualquier página.", "Choisissez ce que vous autorisez. Vous pouvez le modifier à tout moment depuis le pied de chaque page."],
+  'cook.nec.t': ["Necesarias", "Nécessaires"],
+  'cook.nec.d': ["Recuerdan su idioma, el tema, las opciones de accesibilidad y esta decisión. No identifican a nadie y no se pueden desactivar.", "Elles mémorisent votre langue, le thème, les options d'accessibilité et ce choix. Elles n'identifient personne et ne peuvent pas être désactivées."],
+  'cook.always': ["Siempre activas", "Toujours actives"],
+  'cook.stat.t': ["Estadísticas", "Statistiques"],
+  'cook.stat.d': ["Cuentan las visitas a cada página con Cloudflare Web Analytics, sin cookies ni perfiles de visitantes.", "Elles comptent les visites de chaque page avec Cloudflare Web Analytics, sans cookies ni profils de visiteurs."],
+  'cook.save': ["Guardar selección", "Enregistrer la sélection"],
+  'acc.open': ["Opciones de accesibilidad", "Options d'accessibilité"],
+  'acc.title': ["Accesibilidad", "Accessibilité"],
+  'acc.text': ["Tamaño del texto", "Taille du texte"],
+  'acc.t0': ["Normal", "Normal"],
+  'acc.t1': ["Grande", "Grand"],
+  'acc.t2': ["Muy grande", "Très grand"],
+  'acc.contrast': ["Alto contraste", "Contraste élevé"],
+  'acc.links': ["Subrayar enlaces", "Souligner les liens"],
+  'acc.motion': ["Detener animaciones", "Arrêter les animations"],
+  'acc.reset': ["Restablecer", "Réinitialiser"],
+  'priv.h1': ["Privacidad y cookies", "Confidentialité et cookies"],
+  'priv.lead': ["Qué guarda este sitio, para qué y cómo decidir sobre ello.", "Ce que ce site enregistre, pourquoi, et comment en décider."],
+  'priv.1.t': ["Quién es el responsable", "Qui est responsable"],
+  'priv.1.d': ["Kandisha Pro'Art, estudio de Kamal Bounous. Imm. Côte d'Or, n.º 38, Tánger, Marruecos. Para cualquier consulta sobre sus datos: kandisha.pro.art@gmail.com.", "Kandisha Pro'Art, studio de Kamal Bounous. Imm. Côte d'Or, n° 38, Tanger, Maroc. Pour toute question sur vos données : kandisha.pro.art@gmail.com."],
+  'priv.2.t': ["Qué datos tratamos", "Les données que nous traitons"],
+  'priv.2.d': ["Este sitio no tiene cuentas de usuario ni base de datos. El formulario de contacto no envía nada a nuestros servidores: abre su programa de correo con el mensaje preparado y es usted quien lo envía. Si nos escribe o nos llama, usamos sus datos solo para responderle y preparar su proyecto.", "Ce site n'a ni comptes utilisateur ni base de données. Le formulaire de contact n'envoie rien à nos serveurs : il ouvre votre messagerie avec le message prêt, et c'est vous qui l'envoyez. Si vous nous écrivez ou nous appelez, nous n'utilisons vos données que pour vous répondre et préparer votre projet."],
+  'priv.3.t': ["Almacenamiento necesario", "Stockage nécessaire"],
+  'priv.3.d': ["Guardamos en su navegador, sin identificarle, el idioma, el tema claro u oscuro, sus opciones de accesibilidad y su decisión sobre las cookies. Sirve para que el sitio se muestre como usted lo dejó y no se comparte con nadie.", "Nous enregistrons dans votre navigateur, sans vous identifier, la langue, le thème clair ou sombre, vos options d'accessibilité et votre choix concernant les cookies. Cela permet d'afficher le site tel que vous l'avez laissé, et rien n'est partagé avec des tiers."],
+  'priv.4.t': ["Estadísticas de visitas", "Statistiques de visites"],
+  'priv.4.d': ["Solo si lo acepta, usamos Cloudflare Web Analytics para saber cuántas visitas recibe cada página. No utiliza cookies ni crea perfiles de visitantes. Puede cambiar su decisión cuando quiera en «Preferencias de cookies», al pie de cada página.", "Uniquement si vous l'acceptez, nous utilisons Cloudflare Web Analytics pour savoir combien de visites reçoit chaque page. Il n'utilise pas de cookies et ne crée pas de profils de visiteurs. Vous pouvez modifier votre choix à tout moment dans « Préférences de cookies », au pied de chaque page."],
+  'priv.5.t': ["Servicios de terceros", "Services tiers"],
+  'priv.5.d': ["El sitio está alojado en GitHub Pages y las tipografías se cargan desde Google Fonts. Como ocurre con cualquier servidor web, estos proveedores reciben la dirección IP de su dispositivo al servir los archivos. Los enlaces a Facebook y Google Maps llevan a sitios con sus propias políticas.", "Le site est hébergé sur GitHub Pages et les polices sont chargées depuis Google Fonts. Comme pour tout serveur web, ces fournisseurs reçoivent l'adresse IP de votre appareil lorsqu'ils servent les fichiers. Les liens vers Facebook et Google Maps mènent à des sites ayant leurs propres politiques."],
+  'priv.6.t': ["Sus derechos", "Vos droits"],
+  'priv.6.d': ["Puede pedirnos acceder a los datos que nos haya enviado, corregirlos o eliminarlos escribiendo a kandisha.pro.art@gmail.com.", "Vous pouvez nous demander d'accéder aux données que vous nous avez envoyées, de les corriger ou de les supprimer en écrivant à kandisha.pro.art@gmail.com."],
+  'priv.date': ["Última actualización: noviembre de 2026.", "Dernière mise à jour : novembre 2026."],
   'foot': ["© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.", "© 2026 Kandisha Pro'Art, Kamal Bounous. Tanger."]
 };
 
@@ -397,13 +433,17 @@ const PAGINAS = {
     <div class="estudio-texto">
       <h2${t('stu.title')}</h2>
       <p${t('stu.p1')}</p>
-      <dl class="datos">
-        <div><dt>100 %</dt><dd${t('stu.f1')}</dd></div>
-        <div><dt${t('stu.n2')}</dt><dd${t('stu.f2')}</dd></div>
-      </dl>
       <a class="enlace" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener"${t('stu.fb')}</a>
     </div>
     <img class="sello" src="assets/sello-kandisha.webp" width="480" height="502" loading="lazy" alt="Sello de copyright Kandisha, Tánger">
+  </section>
+
+  <section class="seccion malla cifras">
+    <dl class="datos">
+      <div><dt>100 %</dt><dd${t('stu.f1')}</dd></div>
+      <div><dt${t('stu.n2')}</dt><dd${t('stu.f2')}</dd></div>
+      <div><dt>6</dt><dd${t('stu.f3')}</dd></div>
+    </dl>
   </section>
 
   <figure class="foto-ancha">
@@ -412,8 +452,20 @@ const PAGINAS = {
 
   <section class="seccion seccion-blanca">
     <h2${t('stu.how')}</h2>
-    <div class="principios">
-      ${[1, 2, 3].map(n => `<div><h3${t('stu.v' + n + '.t')}</h3><p${t('stu.v' + n + '.d')}</p></div>`).join('\n      ')}
+    <div class="principios principios-fichas">
+      ${[1, 2, 3].map(n => `<div><span class="servicio-num" aria-hidden="true">0${n}</span><h3${t('stu.v' + n + '.t')}</h3><p${t('stu.v' + n + '.d')}</p></div>`).join('\n      ')}
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="fila-titulo">
+      <h2${t('home.proj')}</h2>
+      <a class="enlace" href="proyectos.html"${t('home.proj.all')}</a>
+    </div>
+    <div class="obras-grandes">
+      ${g('salon1')}
+      ${g('ladrillo')}
+      ${g('patioint')}
     </div>
   </section>
 
@@ -425,8 +477,8 @@ const PAGINAS = {
     desc: "Teléfono, correo y dirección de Kandisha Pro'Art en Tánger.",
     cuerpo: `${cabeza('con.h1', 'con.lead')}
 
-  <section class="seccion contacto">
-    <ul class="contacto-lista">
+  <section class="seccion">
+    <ul class="contacto-lista contacto-tarjetas">
       <li>
         <span${t('con.phone')}</span>
         <a class="dato" href="tel:+212539321959">+212 5393-21959</a>
@@ -445,6 +497,14 @@ const PAGINAS = {
         <a class="enlace" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener">KandishaProArt</a>
       </li>
     </ul>
+  </section>
+
+  <section class="seccion seccion-blanca contacto">
+    <div class="contacto-intro">
+      <h2${t('hero.cta')}</h2>
+      <p${t('con.form.p')}</p>
+      <img loading="lazy" src="assets/proyectos/salon-abierto.jpg" width="960" height="450" alt="${es('p.salon2')}">
+    </div>
 
     <form class="formulario" id="formulario" novalidate>
       <div class="campo">
@@ -469,8 +529,25 @@ const PAGINAS = {
       <button class="boton boton-sello" type="submit"${t('form.send')}</button>
       <p class="form-nota"${t('form.note')}</p>
     </form>
+  </section>
+
+  <section class="seccion malla">
+    <h2${t('proc.title')}</h2>
+    ${pasos}
   </section>`
   }
+};
+
+PAGINAS['privacidad.html'] = {
+  titulo: "Privacidad y cookies — Kandisha Pro'Art",
+  desc: "Qué datos guarda el sitio de Kandisha Pro'Art, para qué se usan y cómo cambiar las preferencias de cookies.",
+  cuerpo: `${cabeza('priv.h1', 'priv.lead')}
+
+  <section class="seccion legal">
+    ${[1, 2, 3, 4, 5, 6].map(n => `<h2${t('priv.' + n + '.t')}</h2>
+    <p${t('priv.' + n + '.d')}</p>`).join('\n    ')}
+    <p class="legal-fecha"${t('priv.date')}</p>
+  </section>`
 };
 
 function pagina(archivo, p) {
@@ -482,6 +559,7 @@ function pagina(archivo, p) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/tema.js"></script>
+<script src="js/accesibilidad.js"></script>
 <title>${esc(p.titulo)}</title>
 <meta name="description" content="${p.desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -492,7 +570,7 @@ function pagina(archivo, p) {
 <script>
 // Decide antes de pintar si hay animaciones y qué entrada toca: carga completa o telón corto
 (function (r) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || r.classList.contains("acc-quieto")) return;
   var visto = false;
   try { visto = !!sessionStorage.getItem("kandisha-visto"); } catch (e) {}
   r.classList.add("anim", visto ? "entrada-corta" : "entrada-larga");
@@ -538,7 +616,7 @@ ${CARGA}
       <h2 class="pie-titulo"${t('nav.contact')}</h2>
       <a href="tel:+212539321959">+212 5393-21959</a>
       <a href="mailto:kandisha.pro.art@gmail.com">kandisha.pro.art@gmail.com</a>
-      <a href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener">Facebook</a>
+      <a class="pie-red" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
     </div>
     <div>
       <h2 class="pie-titulo"${t('con.addr')}</h2>
@@ -552,7 +630,10 @@ ${CARGA}
   </div>
   <div class="pie-legal">
     <span${t('foot')}</span>
-    <button type="button" class="pie-cookies" id="cookies-abrir"${t('cook.prefs')}</button>
+    <div class="pie-legal-enlaces">
+      <a class="pie-cookies" href="privacidad.html"${t('priv.h1')}</a>
+      <button type="button" class="pie-cookies" id="cookies-abrir"${t('cook.prefs')}</button>
+    </div>
   </div>
 </footer>
 
@@ -560,12 +641,61 @@ ${CARGA}
   <div class="cookies-texto">
     <p class="cookies-titulo"${t('cook.title')}</p>
     <p${t('cook.text')}</p>
+    <a class="enlace" href="privacidad.html"${t('cook.more')}</a>
   </div>
   <div class="cookies-acciones">
+    <button type="button" class="cookies-enlace" id="cookies-cfg"${t('cook.config')}</button>
     <button type="button" class="boton boton-linea" id="cookies-no"${t('cook.no')}</button>
     <button type="button" class="boton boton-sello" id="cookies-si"${t('cook.yes')}</button>
   </div>
 </section>
+
+<dialog class="cookies-config" id="cookies-config" aria-labelledby="cookies-config-titulo">
+  <h2 id="cookies-config-titulo"${t('cook.prefs')}</h2>
+  <p${t('cook.cfg.intro')}</p>
+  <div class="cookies-cat">
+    <div>
+      <h3${t('cook.nec.t')}</h3>
+      <p${t('cook.nec.d')}</p>
+    </div>
+    <span class="cookies-fijo"${t('cook.always')}</span>
+  </div>
+  <div class="cookies-cat">
+    <div>
+      <h3 id="cookies-estadisticas-titulo"${t('cook.stat.t')}</h3>
+      <p${t('cook.stat.d')}</p>
+    </div>
+    <label class="interruptor">
+      <input type="checkbox" id="cookies-estadisticas" aria-labelledby="cookies-estadisticas-titulo">
+      <span aria-hidden="true"></span>
+    </label>
+  </div>
+  <a class="enlace" href="privacidad.html"${t('cook.more')}</a>
+  <div class="cookies-config-acciones">
+    <button type="button" class="boton boton-linea" id="cookies-cfg-no"${t('cook.no')}</button>
+    <button type="button" class="boton boton-linea" id="cookies-cfg-guardar"${t('cook.save')}</button>
+    <button type="button" class="boton boton-sello" id="cookies-cfg-si"${t('cook.yes')}</button>
+  </div>
+</dialog>
+
+<div class="acc" id="acc">
+  <button type="button" class="acc-boton" id="acc-boton" aria-expanded="false" aria-controls="acc-panel"${ta('acc.open')}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.6" r="1.9"/><path d="M4.5 8.6c2.5.8 5 1.2 7.5 1.2s5-.4 7.5-1.2M12 9.8v5.4m0 0-3.1 5.9m3.1-5.9 3.1 5.9"/></svg>
+  </button>
+  <div class="acc-panel" id="acc-panel" role="group" aria-labelledby="acc-titulo" hidden>
+    <p class="acc-titulo" id="acc-titulo"${t('acc.title')}</p>
+    <p class="acc-etiqueta" id="acc-texto-etiqueta"${t('acc.text')}</p>
+    <div class="acc-tamanos" role="group" aria-labelledby="acc-texto-etiqueta">
+      <button type="button" data-acc-texto="0" aria-pressed="true"${t('acc.t0')}</button>
+      <button type="button" data-acc-texto="1" aria-pressed="false"${t('acc.t1')}</button>
+      <button type="button" data-acc-texto="2" aria-pressed="false"${t('acc.t2')}</button>
+    </div>
+    <button type="button" class="acc-opcion" data-acc="contraste" aria-pressed="false"${t('acc.contrast')}</button>
+    <button type="button" class="acc-opcion" data-acc="enlaces" aria-pressed="false"${t('acc.links')}</button>
+    <button type="button" class="acc-opcion" data-acc="quieto" aria-pressed="false"${t('acc.motion')}</button>
+    <button type="button" class="acc-reset" id="acc-reset"${t('acc.reset')}</button>
+  </div>
+</div>
 
 ${p.cuerpo.includes('obra-abrir') ? `<dialog class="visor" id="visor"${ta('lb.label')}>
   <div class="visor-barra">

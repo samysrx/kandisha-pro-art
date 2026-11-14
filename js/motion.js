@@ -25,17 +25,17 @@
     });
     el.classList.add('partido');
   }
-  var titulares = '.portada h1, .cabeza-pagina h1, .declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2';
+  var titulares = '.portada h1, .cabeza-pagina h1, .declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2, .contacto-intro h2';
   $$(titulares).forEach(partir);
   document.addEventListener('kandisha:idioma', function () { $$(titulares).forEach(partir); });
 
   /* ---------- Entradas al desplazar ---------- */
   var grupos = [
-    ['.declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2', 'rev'],
+    ['.declaracion-frase, .fila-titulo h2, .seccion > h2, .estudio h2, .llamada h2, .contacto-intro h2', 'rev'],
     ['.declaracion-texto, .estudio-texto > p, .datos > div, .estudio-texto > .enlace, .fila-titulo > .enlace, ' +
      '.llamada p, .llamada > div:last-child, .llamada > .boton, .principios > div, .pasos li, .servicio, ' +
      '.servicios-lista li, .contacto-lista > li, .formulario, .titulo-menor, .filtros, .pie-columnas > *, .pie-legal, ' +
-     '.destacado-texto, .servicio-bloque-texto, .servicio-carta', 'rev rev-sube'],
+     '.destacado-texto, .servicio-bloque-texto, .servicio-carta, .contacto-intro > p, .contacto-intro > img', 'rev rev-sube'],
     ['.obra, .foto-ancha, .servicio-bloque-foto', 'rev rev-foto'],
     ['.sello', 'rev rev-sello']
   ];

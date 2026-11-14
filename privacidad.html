@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/tema.js"></script>
+<script src="js/accesibilidad.js"></script>
+<title>Privacidad y cookies — Kandisha Pro'Art</title>
+<meta name="description" content="Qué datos guarda el sitio de Kandisha Pro'Art, para qué se usan y cómo cambiar las preferencias de cookies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Cabin:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/motion.css">
+<script>
+// Decide antes de pintar si hay animaciones y qué entrada toca: carga completa o telón corto
+(function (r) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || r.classList.contains("acc-quieto")) return;
+  var visto = false;
+  try { visto = !!sessionStorage.getItem("kandisha-visto"); } catch (e) {}
+  r.classList.add("anim", visto ? "entrada-corta" : "entrada-larga");
+})(document.documentElement);
+</script>
+</head>
+<body>
+<div class="carga malla" id="carga" aria-hidden="true">
+  <div class="carga-escena">
+    <img class="carga-foto" src="assets/proyectos/villa-porche-1.webp" width="1279" height="719" alt="">
+    <div class="carga-plano"><svg class="carga-dibujo" viewBox="-10 18 332 156" aria-hidden="true"><path style="--d:0" pathLength="1" d="M8 162 H312"/><path style="--d:1" pathLength="1" d="M40 82 H192 V98 H40 Z"/><path style="--d:2" pathLength="1" d="M48 98 V162"/><path style="--d:3" pathLength="1" d="M176 98 V162"/><path style="--d:4" pathLength="1" d="M152 60 H300"/><path style="--d:5" pathLength="1" d="M192 60 V82"/><path style="--d:6" pathLength="1" d="M290 60 V162"/><path style="--d:7" pathLength="1" d="M214 30 H250 V162"/><path style="--d:8" pathLength="1" d="M214 30 V162"/><path style="--d:9" pathLength="1" d="M223 30 V162"/><path style="--d:10" pathLength="1" d="M232 30 V162"/><path style="--d:11" pathLength="1" d="M241 30 V162"/><path style="--d:12" pathLength="1" d="M258 112 H284 V162"/><path style="--d:13" pathLength="1" d="M258 112 V162"/><path style="--d:14" pathLength="1" d="M271 112 V162"/><path style="--d:15" pathLength="1" d="M70 162 V128 H150 V162"/><path class="fino" style="--d:16" pathLength="1" d="M22 162 C22 138 20 120 18 104"/><path class="fino" style="--d:17" pathLength="1" d="M18 104 C8 94 2 98 -2 106"/><path class="fino" style="--d:18" pathLength="1" d="M18 104 C28 92 36 96 40 104"/><path class="fino" style="--d:19" pathLength="1" d="M18 104 C14 90 6 86 0 88"/><path class="fino" style="--d:20" pathLength="1" d="M18 104 C24 88 32 86 37 90"/></svg></div>
+    <span class="carga-corte"></span>
+  </div>
+  <div class="carga-barra"></div>
+  <div class="carga-pie">
+    <span class="carga-marca">Kandisha <em>Pro'Art</em></span>
+    <span class="carga-num" id="carga-num">0</span>
+  </div>
+</div>
+<div class="telon" aria-hidden="true"></div>
+
+<a class="saltar" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="index.html" aria-label="Kandisha Pro'Art, inicio">
+    <span class="marca-logo"><img class="logo-claro" src="assets/logo-kandisha-proart.webp" width="2000" height="782" alt="Kamal Bounous — Kandisha Pro’Art" fetchpriority="high"><img class="logo-letras" src="assets/logo-kandisha-proart.webp" width="2000" height="782" alt="" aria-hidden="true"></span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a href="index.html" data-i18n="nav.home">Inicio</a>
+    <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+    <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+    <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
+    <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+  </nav>
+  <button class="tema-boton" id="tema-boton" type="button" aria-label="Activar modo oscuro" title="Activar modo oscuro" hidden>
+    <svg class="tema-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
+    <svg class="tema-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+  </button>
+  <select class="idioma" id="idioma" aria-label="Idioma / Langue / اللغة">
+    <option value="es">ES</option>
+    <option value="fr">FR</option>
+    <option value="ar">عربي</option>
+  </select>
+  <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="nav" data-i18n="menu">Menú</button>
+</header>
+
+<main id="contenido">
+  <section class="cabeza-pagina malla">
+    <h1 data-i18n="priv.h1">Privacidad y cookies</h1>
+    <p data-i18n="priv.lead">Qué guarda este sitio, para qué y cómo decidir sobre ello.</p>
+  </section>
+
+  <section class="seccion legal">
+    <h2 data-i18n="priv.1.t">Quién es el responsable</h2>
+    <p data-i18n="priv.1.d">Kandisha Pro'Art, estudio de Kamal Bounous. Imm. Côte d'Or, n.º 38, Tánger, Marruecos. Para cualquier consulta sobre sus datos: kandisha.pro.art@gmail.com.</p>
+    <h2 data-i18n="priv.2.t">Qué datos tratamos</h2>
+    <p data-i18n="priv.2.d">Este sitio no tiene cuentas de usuario ni base de datos. El formulario de contacto no envía nada a nuestros servidores: abre su programa de correo con el mensaje preparado y es usted quien lo envía. Si nos escribe o nos llama, usamos sus datos solo para responderle y preparar su proyecto.</p>
+    <h2 data-i18n="priv.3.t">Almacenamiento necesario</h2>
+    <p data-i18n="priv.3.d">Guardamos en su navegador, sin identificarle, el idioma, el tema claro u oscuro, sus opciones de accesibilidad y su decisión sobre las cookies. Sirve para que el sitio se muestre como usted lo dejó y no se comparte con nadie.</p>
+    <h2 data-i18n="priv.4.t">Estadísticas de visitas</h2>
+    <p data-i18n="priv.4.d">Solo si lo acepta, usamos Cloudflare Web Analytics para saber cuántas visitas recibe cada página. No utiliza cookies ni crea perfiles de visitantes. Puede cambiar su decisión cuando quiera en «Preferencias de cookies», al pie de cada página.</p>
+    <h2 data-i18n="priv.5.t">Servicios de terceros</h2>
+    <p data-i18n="priv.5.d">El sitio está alojado en GitHub Pages y las tipografías se cargan desde Google Fonts. Como ocurre con cualquier servidor web, estos proveedores reciben la dirección IP de su dispositivo al servir los archivos. Los enlaces a Facebook y Google Maps llevan a sitios con sus propias políticas.</p>
+    <h2 data-i18n="priv.6.t">Sus derechos</h2>
+    <p data-i18n="priv.6.d">Puede pedirnos acceder a los datos que nos haya enviado, corregirlos o eliminarlos escribiendo a kandisha.pro.art@gmail.com.</p>
+    <p class="legal-fecha" data-i18n="priv.date">Última actualización: noviembre de 2026.</p>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="pie-columnas">
+    <div class="pie-marca">
+      <a class="pie-logo-enlace" href="index.html" aria-label="Kandisha Pro'Art, inicio">
+        <span class="marca-logo pie-marca-logo"><img class="logo-claro" src="assets/logo-kandisha-proart.webp" width="2000" height="782" loading="lazy" alt="Kamal Bounous — Kandisha Pro’Art"><img class="logo-letras" src="assets/logo-kandisha-proart.webp" width="2000" height="782" loading="lazy" alt="" aria-hidden="true"></span>
+      </a>
+      <p data-i18n="foot.tag">Arquitectura, concepción y diseño en Tánger.</p>
+    </div>
+    <div>
+      <h2 class="pie-titulo" data-i18n="nav.contact">Contacto</h2>
+      <a href="tel:+212539321959">+212 5393-21959</a>
+      <a href="mailto:kandisha.pro.art@gmail.com">kandisha.pro.art@gmail.com</a>
+      <a class="pie-red" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+    </div>
+    <div>
+      <h2 class="pie-titulo" data-i18n="con.addr">Estudio</h2>
+      <address>Imm. Côte d'Or, n.º 38<br>Angle Av. Youssef Ben Tachfin et Rue Rachid Reda<br><span data-i18n="con.city">Tánger, Marruecos</span></address>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Imm+C%C3%B4te+d%27Or+Avenue+Youssef+Ben+Tachfine+Tanger" target="_blank" rel="noopener" data-i18n="con.map">Cómo llegar</a>
+    </div>
+    <nav class="pie-nav" aria-label="Pie">
+      <h2 class="pie-titulo" data-i18n="menu">Menú</h2>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="proyectos.html" data-i18n="nav.projects">Proyectos</a>
+      <a href="servicios.html" data-i18n="nav.services">Servicios</a>
+      <a href="estudio.html" data-i18n="nav.studio">Estudio</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+    </nav>
+  </div>
+  <div class="pie-legal">
+    <span data-i18n="foot">© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.</span>
+    <div class="pie-legal-enlaces">
+      <a class="pie-cookies" href="privacidad.html" data-i18n="priv.h1">Privacidad y cookies</a>
+      <button type="button" class="pie-cookies" id="cookies-abrir" data-i18n="cook.prefs">Preferencias de cookies</button>
+    </div>
+  </div>
+</footer>
+
+<section class="cookies" id="cookies" data-i18n-aria="cook.title" aria-label="Cookies y privacidad" hidden>
+  <div class="cookies-texto">
+    <p class="cookies-titulo" data-i18n="cook.title">Cookies y privacidad</p>
+    <p data-i18n="cook.text">Usamos almacenamiento necesario para recordar su idioma, el tema y sus preferencias. Con su permiso, medimos además las visitas de forma anónima.</p>
+    <a class="enlace" href="privacidad.html" data-i18n="cook.more">Política de privacidad</a>
+  </div>
+  <div class="cookies-acciones">
+    <button type="button" class="cookies-enlace" id="cookies-cfg" data-i18n="cook.config">Configurar</button>
+    <button type="button" class="boton boton-linea" id="cookies-no" data-i18n="cook.no">Rechazar</button>
+    <button type="button" class="boton boton-sello" id="cookies-si" data-i18n="cook.yes">Aceptar</button>
+  </div>
+</section>
+
+<dialog class="cookies-config" id="cookies-config" aria-labelledby="cookies-config-titulo">
+  <h2 id="cookies-config-titulo" data-i18n="cook.prefs">Preferencias de cookies</h2>
+  <p data-i18n="cook.cfg.intro">Elija qué permite. Puede cambiarlo cuando quiera desde el pie de cualquier página.</p>
+  <div class="cookies-cat">
+    <div>
+      <h3 data-i18n="cook.nec.t">Necesarias</h3>
+      <p data-i18n="cook.nec.d">Recuerdan su idioma, el tema, las opciones de accesibilidad y esta decisión. No identifican a nadie y no se pueden desactivar.</p>
+    </div>
+    <span class="cookies-fijo" data-i18n="cook.always">Siempre activas</span>
+  </div>
+  <div class="cookies-cat">
+    <div>
+      <h3 id="cookies-estadisticas-titulo" data-i18n="cook.stat.t">Estadísticas</h3>
+      <p data-i18n="cook.stat.d">Cuentan las visitas a cada página con Cloudflare Web Analytics, sin cookies ni perfiles de visitantes.</p>
+    </div>
+    <label class="interruptor">
+      <input type="checkbox" id="cookies-estadisticas" aria-labelledby="cookies-estadisticas-titulo">
+      <span aria-hidden="true"></span>
+    </label>
+  </div>
+  <a class="enlace" href="privacidad.html" data-i18n="cook.more">Política de privacidad</a>
+  <div class="cookies-config-acciones">
+    <button type="button" class="boton boton-linea" id="cookies-cfg-no" data-i18n="cook.no">Rechazar</button>
+    <button type="button" class="boton boton-linea" id="cookies-cfg-guardar" data-i18n="cook.save">Guardar selección</button>
+    <button type="button" class="boton boton-sello" id="cookies-cfg-si" data-i18n="cook.yes">Aceptar</button>
+  </div>
+</dialog>
+
+<div class="acc" id="acc">
+  <button type="button" class="acc-boton" id="acc-boton" aria-expanded="false" aria-controls="acc-panel" data-i18n-aria="acc.open" aria-label="Opciones de accesibilidad">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.6" r="1.9"/><path d="M4.5 8.6c2.5.8 5 1.2 7.5 1.2s5-.4 7.5-1.2M12 9.8v5.4m0 0-3.1 5.9m3.1-5.9 3.1 5.9"/></svg>
+  </button>
+  <div class="acc-panel" id="acc-panel" role="group" aria-labelledby="acc-titulo" hidden>
+    <p class="acc-titulo" id="acc-titulo" data-i18n="acc.title">Accesibilidad</p>
+    <p class="acc-etiqueta" id="acc-texto-etiqueta" data-i18n="acc.text">Tamaño del texto</p>
+    <div class="acc-tamanos" role="group" aria-labelledby="acc-texto-etiqueta">
+      <button type="button" data-acc-texto="0" aria-pressed="true" data-i18n="acc.t0">Normal</button>
+      <button type="button" data-acc-texto="1" aria-pressed="false" data-i18n="acc.t1">Grande</button>
+      <button type="button" data-acc-texto="2" aria-pressed="false" data-i18n="acc.t2">Muy grande</button>
+    </div>
+    <button type="button" class="acc-opcion" data-acc="contraste" aria-pressed="false" data-i18n="acc.contrast">Alto contraste</button>
+    <button type="button" class="acc-opcion" data-acc="enlaces" aria-pressed="false" data-i18n="acc.links">Subrayar enlaces</button>
+    <button type="button" class="acc-opcion" data-acc="quieto" aria-pressed="false" data-i18n="acc.motion">Detener animaciones</button>
+    <button type="button" class="acc-reset" id="acc-reset" data-i18n="acc.reset">Restablecer</button>
+  </div>
+</div>
+
+<script src="js/textos-fr.js" defer></script>
+<script src="js/textos-ar.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="js/cookies.js" defer></script>
+<script src="js/analitica.js" defer></script>
+</body>
+</html>

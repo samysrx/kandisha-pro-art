@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/tema.js"></script>
+<script src="js/accesibilidad.js"></script>
 <title>El estudio — Kandisha Pro'Art</title>
 <meta name="description" content="Kandisha Pro'Art es el estudio de diseño de interiores y exteriores de Kamal Bounous en Tánger.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,7 @@
 <script>
 // Decide antes de pintar si hay animaciones y qué entrada toca: carga completa o telón corto
 (function (r) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || r.classList.contains("acc-quieto")) return;
   var visto = false;
   try { visto = !!sessionStorage.getItem("kandisha-visto"); } catch (e) {}
   r.classList.add("anim", visto ? "entrada-corta" : "entrada-larga");
@@ -71,13 +72,17 @@
     <div class="estudio-texto">
       <h2 data-i18n="stu.title">Un estudio de Tánger, con firma propia</h2>
       <p data-i18n="stu.p1">Trabajamos desde el centro de Tánger en viviendas, comercios y espacios de exposición. Cada proyecto sale del estudio con su sello: diseño original, hecho para un cliente y un lugar concretos.</p>
-      <dl class="datos">
-        <div><dt>100 %</dt><dd data-i18n="stu.f1">de recomendaciones en 19 opiniones de Facebook</dd></div>
-        <div><dt data-i18n="stu.n2">1,4 mil</dt><dd data-i18n="stu.f2">personas siguen el trabajo del estudio</dd></div>
-      </dl>
       <a class="enlace" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener" data-i18n="stu.fb">Ver el estudio en Facebook</a>
     </div>
     <img class="sello" src="assets/sello-kandisha.webp" width="480" height="502" loading="lazy" alt="Sello de copyright Kandisha, Tánger">
+  </section>
+
+  <section class="seccion malla cifras">
+    <dl class="datos">
+      <div><dt>100 %</dt><dd data-i18n="stu.f1">de recomendaciones en 19 opiniones de Facebook</dd></div>
+      <div><dt data-i18n="stu.n2">1,4 mil</dt><dd data-i18n="stu.f2">personas siguen el trabajo del estudio</dd></div>
+      <div><dt>6</dt><dd data-i18n="stu.f3">servicios, del plano a la decoración</dd></div>
+    </dl>
   </section>
 
   <figure class="foto-ancha">
@@ -86,10 +91,31 @@
 
   <section class="seccion seccion-blanca">
     <h2 data-i18n="stu.how">Cómo trabajamos</h2>
-    <div class="principios">
-      <div><h3 data-i18n="stu.v1.t">Dentro y fuera, a la vez</h3><p data-i18n="stu.v1.d">La fachada, el jardín y el salón se diseñan juntos, para que la casa se lea como un solo proyecto.</p></div>
-      <div><h3 data-i18n="stu.v2.t">Primero la imagen</h3><p data-i18n="stu.v2.d">Nada se construye sin haberlo visto antes en 3D. Los cambios se hacen en pantalla, no en obra.</p></div>
-      <div><h3 data-i18n="stu.v3.t">Diseño con sello</h3><p data-i18n="stu.v3.d">No repetimos proyectos. Cada diseño es original y lleva la firma del estudio.</p></div>
+    <div class="principios principios-fichas">
+      <div><span class="servicio-num" aria-hidden="true">01</span><h3 data-i18n="stu.v1.t">Dentro y fuera, a la vez</h3><p data-i18n="stu.v1.d">La fachada, el jardín y el salón se diseñan juntos, para que la casa se lea como un solo proyecto.</p></div>
+      <div><span class="servicio-num" aria-hidden="true">02</span><h3 data-i18n="stu.v2.t">Primero la imagen</h3><p data-i18n="stu.v2.d">Nada se construye sin haberlo visto antes en 3D. Los cambios se hacen en pantalla, no en obra.</p></div>
+      <div><span class="servicio-num" aria-hidden="true">03</span><h3 data-i18n="stu.v3.t">Diseño con sello</h3><p data-i18n="stu.v3.d">No repetimos proyectos. Cada diseño es original y lleva la firma del estudio.</p></div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="fila-titulo">
+      <h2 data-i18n="home.proj">Proyectos recientes</h2>
+      <a class="enlace" href="proyectos.html" data-i18n="home.proj.all">Ver todos los proyectos</a>
+    </div>
+    <div class="obras-grandes">
+      <figure class="obra" data-tipo="int" style="--ar:1.667">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/salon-comedor.jpg" width="960" height="576" alt="Salón y comedor abiertos a la luz"></button>
+        <figcaption><span data-i18n="p.salon1">Salón y comedor abiertos a la luz</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="ext" style="--ar:1.133">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/casa-ladrillo.webp" width="1279" height="1129" alt="Casa de una planta con ladrillo visto"></button>
+        <figcaption><span data-i18n="p.ladrillo">Casa de una planta con ladrillo visto</span><small data-i18n="cat.ext">Exterior</small></figcaption>
+      </figure>
+      <figure class="obra" data-tipo="int" style="--ar:1.000">
+        <button type="button" class="obra-abrir" data-i18n-aria="lb.open" aria-label="Ampliar la foto"><img loading="lazy" src="assets/proyectos/patio-interior.jpg" width="960" height="960" alt="Patio interior acristalado"></button>
+        <figcaption><span data-i18n="p.patioint">Patio interior acristalado</span><small data-i18n="cat.int">Interior</small></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -117,7 +143,7 @@
       <h2 class="pie-titulo" data-i18n="nav.contact">Contacto</h2>
       <a href="tel:+212539321959">+212 5393-21959</a>
       <a href="mailto:kandisha.pro.art@gmail.com">kandisha.pro.art@gmail.com</a>
-      <a href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener">Facebook</a>
+      <a class="pie-red" href="https://www.facebook.com/KandishaProArt/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
     </div>
     <div>
       <h2 class="pie-titulo" data-i18n="con.addr">Estudio</h2>
@@ -135,20 +161,85 @@
   </div>
   <div class="pie-legal">
     <span data-i18n="foot">© 2026 Kandisha Pro'Art, Kamal Bounous. Tánger.</span>
-    <button type="button" class="pie-cookies" id="cookies-abrir" data-i18n="cook.prefs">Preferencias de cookies</button>
+    <div class="pie-legal-enlaces">
+      <a class="pie-cookies" href="privacidad.html" data-i18n="priv.h1">Privacidad y cookies</a>
+      <button type="button" class="pie-cookies" id="cookies-abrir" data-i18n="cook.prefs">Preferencias de cookies</button>
+    </div>
   </div>
 </footer>
 
 <section class="cookies" id="cookies" data-i18n-aria="cook.title" aria-label="Cookies y privacidad" hidden>
   <div class="cookies-texto">
     <p class="cookies-titulo" data-i18n="cook.title">Cookies y privacidad</p>
-    <p data-i18n="cook.text">Guardamos en su navegador el idioma y el tema que elija. Si lo acepta, medimos también las visitas de forma anónima con Cloudflare Web Analytics.</p>
+    <p data-i18n="cook.text">Usamos almacenamiento necesario para recordar su idioma, el tema y sus preferencias. Con su permiso, medimos además las visitas de forma anónima.</p>
+    <a class="enlace" href="privacidad.html" data-i18n="cook.more">Política de privacidad</a>
   </div>
   <div class="cookies-acciones">
+    <button type="button" class="cookies-enlace" id="cookies-cfg" data-i18n="cook.config">Configurar</button>
     <button type="button" class="boton boton-linea" id="cookies-no" data-i18n="cook.no">Rechazar</button>
     <button type="button" class="boton boton-sello" id="cookies-si" data-i18n="cook.yes">Aceptar</button>
   </div>
 </section>
+
+<dialog class="cookies-config" id="cookies-config" aria-labelledby="cookies-config-titulo">
+  <h2 id="cookies-config-titulo" data-i18n="cook.prefs">Preferencias de cookies</h2>
+  <p data-i18n="cook.cfg.intro">Elija qué permite. Puede cambiarlo cuando quiera desde el pie de cualquier página.</p>
+  <div class="cookies-cat">
+    <div>
+      <h3 data-i18n="cook.nec.t">Necesarias</h3>
+      <p data-i18n="cook.nec.d">Recuerdan su idioma, el tema, las opciones de accesibilidad y esta decisión. No identifican a nadie y no se pueden desactivar.</p>
+    </div>
+    <span class="cookies-fijo" data-i18n="cook.always">Siempre activas</span>
+  </div>
+  <div class="cookies-cat">
+    <div>
+      <h3 id="cookies-estadisticas-titulo" data-i18n="cook.stat.t">Estadísticas</h3>
+      <p data-i18n="cook.stat.d">Cuentan las visitas a cada página con Cloudflare Web Analytics, sin cookies ni perfiles de visitantes.</p>
+    </div>
+    <label class="interruptor">
+      <input type="checkbox" id="cookies-estadisticas" aria-labelledby="cookies-estadisticas-titulo">
+      <span aria-hidden="true"></span>
+    </label>
+  </div>
+  <a class="enlace" href="privacidad.html" data-i18n="cook.more">Política de privacidad</a>
+  <div class="cookies-config-acciones">
+    <button type="button" class="boton boton-linea" id="cookies-cfg-no" data-i18n="cook.no">Rechazar</button>
+    <button type="button" class="boton boton-linea" id="cookies-cfg-guardar" data-i18n="cook.save">Guardar selección</button>
+    <button type="button" class="boton boton-sello" id="cookies-cfg-si" data-i18n="cook.yes">Aceptar</button>
+  </div>
+</dialog>
+
+<div class="acc" id="acc">
+  <button type="button" class="acc-boton" id="acc-boton" aria-expanded="false" aria-controls="acc-panel" data-i18n-aria="acc.open" aria-label="Opciones de accesibilidad">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.6" r="1.9"/><path d="M4.5 8.6c2.5.8 5 1.2 7.5 1.2s5-.4 7.5-1.2M12 9.8v5.4m0 0-3.1 5.9m3.1-5.9 3.1 5.9"/></svg>
+  </button>
+  <div class="acc-panel" id="acc-panel" role="group" aria-labelledby="acc-titulo" hidden>
+    <p class="acc-titulo" id="acc-titulo" data-i18n="acc.title">Accesibilidad</p>
+    <p class="acc-etiqueta" id="acc-texto-etiqueta" data-i18n="acc.text">Tamaño del texto</p>
+    <div class="acc-tamanos" role="group" aria-labelledby="acc-texto-etiqueta">
+      <button type="button" data-acc-texto="0" aria-pressed="true" data-i18n="acc.t0">Normal</button>
+      <button type="button" data-acc-texto="1" aria-pressed="false" data-i18n="acc.t1">Grande</button>
+      <button type="button" data-acc-texto="2" aria-pressed="false" data-i18n="acc.t2">Muy grande</button>
+    </div>
+    <button type="button" class="acc-opcion" data-acc="contraste" aria-pressed="false" data-i18n="acc.contrast">Alto contraste</button>
+    <button type="button" class="acc-opcion" data-acc="enlaces" aria-pressed="false" data-i18n="acc.links">Subrayar enlaces</button>
+    <button type="button" class="acc-opcion" data-acc="quieto" aria-pressed="false" data-i18n="acc.motion">Detener animaciones</button>
+    <button type="button" class="acc-reset" id="acc-reset" data-i18n="acc.reset">Restablecer</button>
+  </div>
+</div>
+
+<dialog class="visor" id="visor" data-i18n-aria="lb.label" aria-label="Foto ampliada">
+  <div class="visor-barra">
+    <span id="visor-cuenta" dir="ltr"></span>
+    <button type="button" class="visor-boton" id="visor-cerrar" data-i18n="lb.close">Cerrar</button>
+  </div>
+  <div class="visor-foto" id="visor-foto"></div>
+  <div class="visor-pie">
+    <button type="button" class="visor-boton" id="visor-ant" data-i18n="lb.prev">Anterior</button>
+    <p id="visor-texto"></p>
+    <button type="button" class="visor-boton" id="visor-sig" data-i18n="lb.next">Siguiente</button>
+  </div>
+</dialog>
 
 <script src="js/textos-fr.js" defer></script>
 <script src="js/textos-ar.js" defer></script>
